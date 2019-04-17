@@ -4,13 +4,13 @@
 #include "Walk.h"
 #include "scheduler/Helpers.h"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 #include <services/LocalisationService.h>
 #include <services/ModelService.h>
 #include <fstream>
 #include <stdexcept>
 
-#include "rhoban_csa_mdp/core/policy_factory.h"
+#include "starkit_csa_mdp/core/policy_factory.h"
 #include "problems/extended_problem_factory.h"
 
 #include "policies/expert_approach.h"
@@ -21,9 +21,9 @@ using csa_mdp::MixedApproach;
 using csa_mdp::Policy;
 using csa_mdp::PolicyFactory;
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
-static rhoban_utils::Logger logger("LearnedApproach");
+static starkit_utils::Logger logger("LearnedApproach");
 
 LearnedApproach::LearnedApproach(Walk * walk_)
   : ApproachMove(walk_)

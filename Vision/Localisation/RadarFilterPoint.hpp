@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rhoban_geometry/point.h>
+#include <starkit_geometry/point.h>
 #include <Eigen/Dense>
 #include <services/ModelService.h>
 #include <CameraState/CameraState.hpp>

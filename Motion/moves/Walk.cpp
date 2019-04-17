@@ -3,26 +3,26 @@
 #include "Walk.h"
 #include "Head.h"
 #include <RhIO.hpp>
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/angle.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/angle.h>
 #include <Model/HumanoidFloatingModel.hpp>
-#include <rhoban_utils/control/variation_bound.h>
+#include <starkit_utils/control/variation_bound.h>
 #include <services/LocalisationService.h>
 #include <services/ModelService.h>
 #include <services/DecisionService.h>
 #include <Devices/PressureSensor.hpp>
 #include <scheduler/MoveScheduler.h>
-#include <rhoban_utils/control/variation_bound.h>
-#include <rhoban_utils/nominal/nominal.h>
-#include <rhoban_utils/stats/stats.h>
+#include <starkit_utils/control/variation_bound.h>
+#include <starkit_utils/nominal/nominal.h>
+#include <starkit_utils/stats/stats.h>
 #include <cstring>
 #include "Kick.h"
 
 // #define MODE_NOMINAL
 
-static rhoban_utils::Logger walkLogger("Walk");
+static starkit_utils::Logger walkLogger("Walk");
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 #ifdef MODE_NOMINAL
 static Nominal nominal(4, 100);

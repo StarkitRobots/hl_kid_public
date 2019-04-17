@@ -1,8 +1,8 @@
 #include <mutex>
-#include <rhoban_utils/angle.h>
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/timing/time_stamp.h>
-#include <rhoban_utils/timing/benchmark.h>
+#include <starkit_utils/angle.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/benchmark.h>
 #include <random>
 #include "RefereeService.h"
 #include "TeamPlayService.h"
@@ -22,10 +22,10 @@
 
 static bool block = false;
 
-using ::rhoban_utils::TimeStamp;
-using ::rhoban_utils::Benchmark;
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using ::starkit_utils::TimeStamp;
+using ::starkit_utils::Benchmark;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 using namespace robocup_referee;
 
 #ifdef VISION_COMPONENT
@@ -33,7 +33,7 @@ using namespace Vision::Field;
 using Vision::Localisation::FieldPF;
 #endif
 
-static rhoban_utils::Logger out("localisation_service");
+static starkit_utils::Logger out("localisation_service");
         
 LocalisationService::LocalisationService()
   : bind("localisation")
@@ -41,13 +41,13 @@ LocalisationService::LocalisationService()
     ,robocup(NULL), locBinding(NULL)
 #endif
 {
-    lastKick = rhoban_utils::TimeStamp::now();
+    lastKick = starkit_utils::TimeStamp::now();
     // Ball
     ballPosX = ballPosY = 0;
     ballPosWorld = Eigen::Vector3d(0, 0, 0);
     ballQ = 0;
     ballSpeed = Point(0,0);
-    ballTS = rhoban_utils::TimeStamp::now();
+    ballTS = starkit_utils::TimeStamp::now();
     // Goal
     goalPosX = ballPosY = 0;
     goalCap = 0;
@@ -199,10 +199,10 @@ Point LocalisationService::getBallSpeedSelf()
 
 Point LocalisationService::getPredictedBallSelf()
 {
-  return getPredictedBallSelf(rhoban_utils::TimeStamp::now());
+  return getPredictedBallSelf(starkit_utils::TimeStamp::now());
 }
 
-Point LocalisationService::getPredictedBallSelf(rhoban_utils::TimeStamp t)
+Point LocalisationService::getPredictedBallSelf(starkit_utils::TimeStamp t)
 {
   mutex.lock();
   
@@ -518,7 +518,7 @@ void LocalisationService::setOpponentsWorld(const std::vector<Eigen::Vector3d> &
 //       Eigen::Vector3d robot_pose = mateEntry.second;
 //       ss << robot_id << ": "
 //          << "[" << robot_pose(0) << ", " << robot_pose(1) << ", "
-//          << rhoban_utils::rad2deg(robot_pose(2)) << "°], ";
+//          << starkit_utils::rad2deg(robot_pose(2)) << "°], ";
 //     }
 //     ss << "}";
 // 
@@ -563,7 +563,7 @@ void LocalisationService::setBallWorld(const Eigen::Vector3d &pos,
                                        const Eigen::Vector3d &lookPos,
                                        float quality,
                                        const Point & speed,
-                                       const rhoban_utils::TimeStamp & ts)
+                                       const starkit_utils::TimeStamp & ts)
 {
     bind.pull();
     if (block) return;
@@ -764,7 +764,7 @@ bool LocalisationService::getVisualCompassStatus() const
 bool LocalisationService::isVisionActive() const
 {
 #ifdef VISION_COMPONENT
-    double lastFrame = diffSec(robocup->lastTS, rhoban_utils::TimeStamp::now());
+    double lastFrame = diffSec(robocup->lastTS, starkit_utils::TimeStamp::now());
     return lastFrame < 3;
 #else
   return true;
@@ -804,7 +804,7 @@ void LocalisationService::resetRobotFilter()
 std::string LocalisationService::cmdFakeBall(double x, double y)
 {
     Eigen::Vector3d posInWorld(x, y, 0.0);
-    setBallWorld(posInWorld, posInWorld, 1.0, Point(0,0), rhoban_utils::TimeStamp::now());
+    setBallWorld(posInWorld, posInWorld, 1.0, Point(0,0), starkit_utils::TimeStamp::now());
     return "Fake Ball set in world: X=" + std::to_string(x) + std::string(" Y=") + std::to_string(y);
 }
 

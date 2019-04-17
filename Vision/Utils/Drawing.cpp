@@ -4,7 +4,7 @@
 
 #include "Utils/Interface.h"
 
-using namespace rhoban_geometry;
+using namespace starkit_geometry;
 
 namespace Vision {
 namespace Utils {

@@ -1,6 +1,6 @@
 #include "CalibrationSet.hpp"
 
-#include <rhoban_utils/util.h>
+#include <starkit_utils/util.h>
 
 CalibrationSet::CalibrationSet()
   : marker_size(0.09), robot_pos(-0.14,0.065),
@@ -52,22 +52,22 @@ Json::Value CalibrationSet::toJson() const {
   v["sheet_dx"          ] = sheet_dx;
   v["sheet_dy"          ] = sheet_dy;
   v["sheets_spacing"    ] = sheets_spacing;
-  v["panel_size"        ] = rhoban_utils::vector2Json(panel_size);
-  v["robot_pos"         ] = rhoban_utils::vector2Json(robot_pos);
+  v["panel_size"        ] = starkit_utils::vector2Json(panel_size);
+  v["robot_pos"         ] = starkit_utils::vector2Json(robot_pos);
   return v;
 }
 
 void CalibrationSet::fromJson(const Json::Value & v, const std::string & dir_path) {
   (void) dir_path;
-  rhoban_utils::tryRead(v, "marker_size"       , &marker_size);
-  rhoban_utils::tryRead(v, "panel_thickness"   , &panel_thickness);
-  rhoban_utils::tryRead(v, "border_to_center_1", &border_to_center_1);
-  rhoban_utils::tryRead(v, "border_to_center_2", &border_to_center_2);
-  rhoban_utils::tryRead(v, "sheet_dx"          , &sheet_dx);
-  rhoban_utils::tryRead(v, "sheet_dy"          , &sheet_dy);
-  rhoban_utils::tryRead(v, "sheets_spacing"    , &sheets_spacing);
-  rhoban_utils::tryReadEigen(v, "panel_size"        , &panel_size);
-  rhoban_utils::tryReadEigen(v, "robot_pos"         , &robot_pos);
+  starkit_utils::tryRead(v, "marker_size"       , &marker_size);
+  starkit_utils::tryRead(v, "panel_thickness"   , &panel_thickness);
+  starkit_utils::tryRead(v, "border_to_center_1", &border_to_center_1);
+  starkit_utils::tryRead(v, "border_to_center_2", &border_to_center_2);
+  starkit_utils::tryRead(v, "sheet_dx"          , &sheet_dx);
+  starkit_utils::tryRead(v, "sheet_dy"          , &sheet_dy);
+  starkit_utils::tryRead(v, "sheets_spacing"    , &sheets_spacing);
+  starkit_utils::tryReadEigen(v, "panel_size"        , &panel_size);
+  starkit_utils::tryReadEigen(v, "robot_pos"         , &robot_pos);
 }
 
 std::string CalibrationSet::getClassName() const {

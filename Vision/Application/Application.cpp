@@ -3,8 +3,8 @@
 
 #include "Application.hpp"
 
-#include <rhoban_utils/util.h>
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/util.h>
+#include <starkit_utils/logging/logger.h>
 #include <opencv2/highgui/highgui.hpp>
 
 #include <exception>
@@ -13,7 +13,7 @@
 
 using Vision::Filters::Source;
 
-static rhoban_utils::Logger logger("Vision::Application");
+static starkit_utils::Logger logger("Vision::Application");
 
 
 namespace Vision {
@@ -133,12 +133,12 @@ void Application::launch() {
 }
 
 void Application::fromJson(const Json::Value & v, const std::string & dir_name) {
-  rhoban_utils::tryRead(v,"playing",&playing);
-  rhoban_utils::tryRead(v,"embedded",&embedded);
-  rhoban_utils::tryRead(v,"gpuOn",&gpuOn);
-  rhoban_utils::tryRead(v,"pathToLog",&pathToLog);
-  rhoban_utils::tryRead(v,"angularPitchTolerance",&angularPitchTolerance);
-  rhoban_utils::tryRead(v,"exitOnStreamEnd",&exit_on_stream_end);
+  starkit_utils::tryRead(v,"playing",&playing);
+  starkit_utils::tryRead(v,"embedded",&embedded);
+  starkit_utils::tryRead(v,"gpuOn",&gpuOn);
+  starkit_utils::tryRead(v,"pathToLog",&pathToLog);
+  starkit_utils::tryRead(v,"angularPitchTolerance",&angularPitchTolerance);
+  starkit_utils::tryRead(v,"exitOnStreamEnd",&exit_on_stream_end);
 
   pipeline.tryRead(v, "pipeline", dir_name);
   checkConsistency();

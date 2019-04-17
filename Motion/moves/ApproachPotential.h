@@ -1,7 +1,7 @@
 #pragma once
 
 #include "moves/ApproachMove.h"
-#include <rhoban_utils/control/control.h>
+#include <starkit_utils/control/control.h>
 #include <services/TeamPlayService.h>
 
 class Walk;
@@ -11,16 +11,16 @@ class ApproachPotential : public ApproachMove
 public:
   struct Target {
     Target();
-    Target(rhoban_geometry::Point position, rhoban_utils::Angle yaw,
+    Target(starkit_geometry::Point position, starkit_utils::Angle yaw,
            bool rightKick, std::string kickName, double tolerance);
-    rhoban_geometry::Point position;
-    rhoban_utils::Angle yaw;
+    starkit_geometry::Point position;
+    starkit_utils::Angle yaw;
     bool rightKick;
     std::string kickName;
     double tolerance;
   };
 
-  virtual rhoban_utils::Angle getKickCap();
+  virtual starkit_utils::Angle getKickCap();
 
   ApproachPotential(Walk *walk);
   std::string getName();
@@ -30,7 +30,7 @@ public:
   void step(float elapsed);
 
 protected:
-  rhoban_utils::Control stepper, lateraler, aligner;
+  starkit_utils::Control stepper, lateraler, aligner;
     
   std::vector<Target> targets;
 
@@ -38,7 +38,7 @@ protected:
    * Getting the control to send to the walk to reach a given target, knowing
    * where the ball is
    */
-  void getControl(const Target &target, const rhoban_geometry::Point &ball,
+  void getControl(const Target &target, const starkit_geometry::Point &ball,
                   double &x, double &y, double &yaw);
 
   // Foot choice

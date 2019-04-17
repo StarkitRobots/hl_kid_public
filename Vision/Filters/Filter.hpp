@@ -10,9 +10,9 @@
 #include "Utils/ParamsContainer.hpp"
 #include "Utils/SafePtr.hpp"
 
-#include "rhoban_utils/serialization/json_serializable.h"
+#include "starkit_utils/serialization/json_serializable.h"
 
-#include "rhoban_geometry/circle.h"
+#include "starkit_geometry/circle.h"
 
 namespace Vision {
 namespace Utils {
@@ -89,7 +89,7 @@ typedef Parameter<float> ParamFloat;
  * processing step in the
  * pipeline (acyclic directed graph)
  */
-class Filter : public rhoban_utils::JsonSerializable {
+class Filter : public starkit_utils::JsonSerializable {
 public:
   enum UpdateType { backward, forward, steady };
 
@@ -156,9 +156,9 @@ public:
   virtual int expectedDependencies() const { return 1; }
 
   const std::vector<std::pair<float, cv::RotatedRect>> &getRois() const;
-  const std::vector<std::pair<float, rhoban_geometry::Circle>> &getCircleRois() const;
+  const std::vector<std::pair<float, starkit_geometry::Circle>> &getCircleRois() const;
   void addRoi(float quality, cv::RotatedRect _rect);
-  void addRoi(float quality, rhoban_geometry::Circle _circle);
+  void addRoi(float quality, starkit_geometry::Circle _circle);
   void clearRois();
 
   void addDependency(const std::string &name);
@@ -227,7 +227,7 @@ protected:
   /// Read only values of Parameters and not min or max
   template <typename T> void tryParametersUpdate(const Json::Value & v, const std::string & key) {
     std::map<std::string, T> parameters;
-    rhoban_utils::tryReadMap(v, key, &parameters);
+    starkit_utils::tryReadMap(v, key, &parameters);
     for (const auto & pair : parameters) {
       params()->set<Parameter<T>>(pair.first) = pair.second;
     }
@@ -240,7 +240,7 @@ protected:
     for (const auto & pair : params()->params<Parameter<T>>().getMap()) {
       values[pair.first] = pair.second.value;
     }
-    return rhoban_utils::map2Json(values);
+    return starkit_utils::map2Json(values);
   }
 
   /**
@@ -254,7 +254,7 @@ protected:
      */
   std::vector<std::pair<float, cv::RotatedRect>>
       _rois; //<roi, quality> (.boundingRect() on a RotatedRect to get a Rect)
-  std::vector<std::pair<float, rhoban_geometry::Circle>> _circleRois;
+  std::vector<std::pair<float, starkit_geometry::Circle>> _circleRois;
 
 protected:
 

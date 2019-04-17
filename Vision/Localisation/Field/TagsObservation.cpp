@@ -6,16 +6,16 @@
 
 #include "RhIO.hpp"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 #include <string>
 #include <sstream>
 #include <cmath>
 
-static rhoban_utils::Logger out("TagsObservation");
+static starkit_utils::Logger out("TagsObservation");
 
 using Vision::Utils::CameraState;
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Localisation {

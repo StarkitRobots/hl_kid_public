@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ImageLogger.h"
 
-#include <rhoban_utils/util.h>
+#include <starkit_utils/util.h>
 
 #include <opencv2/highgui/highgui.hpp>
 
@@ -56,7 +56,7 @@ void ImageLogger::initSession(const std::string & session_local_path) {
     session_path = logger_prefix + "/" + session_local_path;
   } else {
     // Use a default name
-    session_path = logger_prefix + "/" + rhoban_utils::getFormattedTime();
+    session_path = logger_prefix + "/" + starkit_utils::getFormattedTime();
   }
   int err = system(("mkdir -p " + session_path).c_str());
   if (err != 0) {

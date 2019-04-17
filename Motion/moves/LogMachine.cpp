@@ -1,6 +1,6 @@
 #include <fstream>
 
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/logging/logger.h>
 
 #include "moves/LogMachine.hpp"
 #include "services/DecisionService.h"
@@ -11,7 +11,7 @@
 
 #include <scheduler/MoveScheduler.h>
 
-#include <rhoban_random/tools.h>
+#include <starkit_random/tools.h>
 
 #define STATE_INACTIVE    "Inactive"
 #define STATE_PREAMBLE    "Preamble"
@@ -19,10 +19,10 @@
 #define STATE_EPILOGUE    "Epilogue"
 #define STATE_INCAPACITED "Incapacited"
 
-static rhoban_utils::Logger logger("LogMachine");
+static starkit_utils::Logger logger("LogMachine");
 
-using namespace rhoban_utils;
-using namespace rhoban_geometry;
+using namespace starkit_utils;
+using namespace starkit_geometry;
 
 LogMachine::LogMachine(Walk* walk_, Head * head_)
   : walk(walk_), head(head_),
@@ -30,7 +30,7 @@ LogMachine::LogMachine(Walk* walk_, Head * head_)
     dumpFileName(""),
     randomWalk(3)
 {
-  engine = rhoban_random::getRandomEngine();
+  engine = starkit_random::getRandomEngine();
   state = STATE_INACTIVE;
   Move::initializeBinding();
   //RhIO Binding function
@@ -478,5 +478,5 @@ Eigen::Matrix<double,3,2> LogMachine::getDeltaLimits() {
 
 Eigen::Vector3d LogMachine::getRandomSpeed() {
   Eigen::Matrix<double,3,2> limits = getOrdersLimits();
-  return rhoban_random::getUniformSamples(limits, 1, &engine)[0];
+  return starkit_random::getUniformSamples(limits, 1, &engine)[0];
 }

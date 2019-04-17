@@ -2,7 +2,7 @@
 
 #include <map>
 #include <string>
-#include <rhoban_utils/spline/function.h>
+#include <starkit_utils/spline/function.h>
 #include "Move.h"
 #include <Model/HumanoidFloatingModel.hpp>
 #include <Model/HumanoidFixedModel.hpp>

@@ -8,12 +8,12 @@
 
 #include "scheduler/MoveScheduler.h"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
-static rhoban_utils::Logger logger("StrategyService");
+static starkit_utils::Logger logger("StrategyService");
 
 StrategyService::StrategyService()
   : bind("strategy"),

@@ -1,6 +1,6 @@
 #include <stdexcept>
-#include <rhoban_utils/timing/time_stamp.h>
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/timing/time_stamp.h>
+#include <starkit_utils/logging/logger.h>
 #include "services/Services.h"
 #include "scheduler/MoveScheduler.h"
 #include "services/ModelService.h"
@@ -8,9 +8,9 @@
 #include <Devices/GY85.hpp>
 
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
-static rhoban_utils::Logger out("helpers");
+static starkit_utils::Logger out("helpers");
 
 Helpers::Helpers() :
         _scheduler(nullptr)

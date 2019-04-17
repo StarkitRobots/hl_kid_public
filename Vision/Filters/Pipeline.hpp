@@ -5,11 +5,11 @@
 #include <string>
 #include <Filters/Filter.hpp>
 
-#include "rhoban_utils/timing/time_stamp.h"
+#include "starkit_utils/timing/time_stamp.h"
 
-#include "rhoban_utils/serialization/json_serializable.h"
+#include "starkit_utils/serialization/json_serializable.h"
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 namespace Vision {
 
 namespace Utils {
@@ -22,7 +22,7 @@ class CameraState;
  * Groups Filter as acyclic oriented graph.
  * Handle Filter dependencies.
  */
-class Pipeline : public rhoban_utils::JsonSerializable {
+class Pipeline : public starkit_utils::JsonSerializable {
 public:
   /**
    * Typedef for Filter container
@@ -93,9 +93,9 @@ public:
   void run();
 
   /// Set the timeStamp of the pipeline: not thread safe
-  void setTimestamp(const ::rhoban_utils::TimeStamp & ts);
+  void setTimestamp(const ::starkit_utils::TimeStamp & ts);
   /// Retrieve the timeStamp of the pipeline: not thread safe
-  const ::rhoban_utils::TimeStamp& getTimestamp() const;
+  const ::starkit_utils::TimeStamp& getTimestamp() const;
 
   /// Read a vector of filters from a Json value and add them to pipeline
   /// 1st format: value is an array of filters
@@ -138,7 +138,7 @@ private:
   FilterThread _filterThread;
 
   /// Timestamp of the current pipeline execution (usually updated by the source filter)
-  rhoban_utils::TimeStamp _timestamp;
+  starkit_utils::TimeStamp _timestamp;
   
   /// Resolve dependencies for all Filters Compute inversed dependency link
   void resolveDependencies();

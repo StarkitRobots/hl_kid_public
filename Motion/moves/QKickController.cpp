@@ -1,18 +1,18 @@
 #include <functional>
 #include <algorithm>
-#include <rhoban_geometry/segment.h>
-#include <rhoban_geometry/circle.h>
+#include <starkit_geometry/segment.h>
+#include <starkit_geometry/circle.h>
 #include <services/LocalisationService.h>
 #include <services/ModelService.h>
 #include <robocup_referee/constants.h>
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 #include "QKickController.h"
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 using namespace robocup_referee;
 
-static rhoban_utils::Logger logger("QKickController");
+static starkit_utils::Logger logger("QKickController");
 
 QKickController::QKickController()
 {

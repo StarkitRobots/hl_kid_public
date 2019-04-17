@@ -1,19 +1,19 @@
 #include <cmath>
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/angle.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/angle.h>
 #include <services/LocalisationService.h>
 #include <services/TeamPlayService.h>
 #include <services/RefereeService.h>
 #include <services/DecisionService.h>
-#include "rhoban_geometry/point.h"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_geometry/point.h"
+#include "starkit_utils/logging/logger.h"
 #include "moves/ApproachPotential.h"
 #include "moves/Walk.h"
 
-static rhoban_utils::Logger logger("ApproachPotential"/*, LoggerDebug*/);
+static starkit_utils::Logger logger("ApproachPotential"/*, LoggerDebug*/);
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
 #define STATE_STOPPING          "stopping"
 #define STATE_PLACE             "place"

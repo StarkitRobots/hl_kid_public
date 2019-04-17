@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rhoban_utils/spline/function.h>
+#include <starkit_utils/spline/function.h>
 #include <Model/HumanoidFloatingModel.hpp>
 #include <Model/InverseKinematics.hpp>
 #include "Move.h"
@@ -16,7 +16,7 @@ public:
   void step(float elapsed);
   bool live;
   std::string cmdLateralStepGen();
-  std::map<std::string, rhoban_utils::Function> loadCompiledLateralStep(std::string filename);
+  std::map<std::string, starkit_utils::Function> loadCompiledLateralStep(std::string filename);
   void loadCompiledLateralSteps();
   void loadLateralStep(std::string filename);
   void setLeft(bool left);
@@ -36,7 +36,7 @@ protected:
   Leph::InverseKinematics inv;
 
   // Splines
-  std::map<std::string, rhoban_utils::Function> splines;
+  std::map<std::string, starkit_utils::Function> splines;
 
   // Preloaded splines
   double tMaxRegular, tMaxLateral, tMaxSmall;

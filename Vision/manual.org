@@ -3,7 +3,7 @@
 Created on: June 3rd, 2018
 
 This manual aims at providing basic knowledge on the Vision and Localisation
-modules developed by the Rhoban team for RoboCup KidSize league.
+modules developed by the Starkit team for RoboCup KidSize league.
 
 We distinguish here two different modules:
 - Perception: For everything related to treatment of images and acquisition of information
@@ -170,7 +170,7 @@ First, patches have to be extracted. This can be done by:
 3. Run the script *extract_patches.sh*
 
 All the patches will be placed at *patches/results/patches.zip*, the next step
-is to upload the files and tag the patches using rhoban.com/tag
+is to upload the files and tag the patches using starkit.com/tag
 
 ***** Training neural networks
 For this procedure, see the documentation in the package *deep_vision*

@@ -2,7 +2,7 @@
 
 #include "Move.h"
 
-#include "rhoban_unsorted/head_scan.h"
+#include "starkit_unsorted/head_scan.h"
 
 namespace Leph {
   class HumanoidModel;
@@ -40,7 +40,7 @@ private:
 
   /// Get the scan target in self referential according to the scanner
   Eigen::Vector3d getScanTarget(Leph::HumanoidModel * model,
-                                const rhoban_unsorted::HeadScan & scannerUsed);
+                                const starkit_unsorted::HeadScan & scannerUsed);
 
   /// Get the ball target in self referential
   Eigen::Vector3d getBallTarget(Leph::HumanoidModel * model,
@@ -50,11 +50,11 @@ private:
   void applyProtection();
 
   /// Default scanner, used to find the ball
-  rhoban_unsorted::HeadScan scanner;
+  starkit_unsorted::HeadScan scanner;
   /// Specific scanner for localization
-  rhoban_unsorted::HeadScan localize_scanner;
+  starkit_unsorted::HeadScan localize_scanner;
   /// Specific scanner for compass
-  rhoban_unsorted::HeadScan compass_scanner;
+  starkit_unsorted::HeadScan compass_scanner;
 
   /// Min tilt [deg]
   double min_tilt;

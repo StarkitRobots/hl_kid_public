@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include "Filters/Source/SourceLogs.hpp"
 
-#include "rhoban_utils/timing/time_stamp.h"
+#include "starkit_utils/timing/time_stamp.h"
 
 #include <opencv2/opencv.hpp>
 
@@ -27,13 +27,13 @@ void SourceLogs::updateImg() {
     std::cout << "-> Time: " << images.getTimestamp() << std::endl;
 
   }
-  getPipeline()->setTimestamp(::rhoban_utils::TimeStamp::fromMS(images.getTimestamp()));
+  getPipeline()->setTimestamp(::starkit_utils::TimeStamp::fromMS(images.getTimestamp()));
 }
 
 void SourceLogs::fromJson(const Json::Value & v, const std::string & dir_name) {
   Filter::fromJson(v, dir_name);
-  rhoban_utils::tryRead(v,"startIndex",&startIndex);
-  rhoban_utils::tryRead(v,"imagesFile",&imagesFile);
+  starkit_utils::tryRead(v,"startIndex",&startIndex);
+  starkit_utils::tryRead(v,"imagesFile",&imagesFile);
   openImageSequence();
 }
 

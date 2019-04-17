@@ -1,10 +1,10 @@
 #pragma once
 
 #include "moves/ApproachMove.h"
-#include <rhoban_utils/control/control.h>
+#include <starkit_utils/control/control.h>
 #include <services/TeamPlayService.h>
 
-#include "rhoban_csa_mdp/core/policy.h"
+#include "starkit_csa_mdp/core/policy.h"
 #include "problems/ball_approach.h"//from csa_mdp_experiments
 
 class Walk;

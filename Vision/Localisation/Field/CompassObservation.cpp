@@ -4,15 +4,15 @@
 
 #include "RhIO.hpp"
 
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/logging/logger.h>
 
 #include <string>
 #include <sstream>
 #include <cstdlib>
 
-static rhoban_utils::Logger logger("CompassObservation");
+static starkit_utils::Logger logger("CompassObservation");
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Localisation {
@@ -121,7 +121,7 @@ Json::Value CompassObservation::toJson() const
 
 void CompassObservation::fromJson(const Json::Value & v, const std::string & dir_name)
 {
-  rhoban_utils::tryRead(v,"obs",&obs);
+  starkit_utils::tryRead(v,"obs",&obs);
 }
 
 double CompassObservation::getMinScore() const

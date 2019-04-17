@@ -1,6 +1,6 @@
 #include "Filters/Source/Source.hpp"
 
-#include "rhoban_utils/timing/time_stamp.h"
+#include "starkit_utils/timing/time_stamp.h"
 
 #include <flycapture/FlyCapture2.h>
 
@@ -206,7 +206,7 @@ private:
   int nb_retrieve_failures;
 
   /// Last retrieval success in 'computer' time
-  ::rhoban_utils::TimeStamp last_retrieval_success;
+  ::starkit_utils::TimeStamp last_retrieval_success;
 
   /**
    * The values wished for properties
@@ -250,7 +250,7 @@ private:
   /**
    * Previous normalized timestamp, used to verify timing errors.
    */
-  ::rhoban_utils::TimeStamp last_ts;
+  ::starkit_utils::TimeStamp last_ts;
 
   /**
    * Sometimes a custom offset needs to be added to normalized_ts to fit the

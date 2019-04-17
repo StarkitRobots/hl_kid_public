@@ -1,13 +1,13 @@
 #include "MaintenanceService.h"
 #include <json/json.h>
-#include <rhoban_utils/util.h>
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/timing/time_stamp.h>
-#include <rhoban_utils/serialization/json_serializable.h>
+#include <starkit_utils/util.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/timing/time_stamp.h>
+#include <starkit_utils/serialization/json_serializable.h>
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
-static rhoban_utils::Logger logger("Maintenance");
+static starkit_utils::Logger logger("Maintenance");
 
 MaintenanceService::MaintenanceService()
     : bind("maintenance")
@@ -24,8 +24,8 @@ void MaintenanceService::loadFile()
 
     Json::Value json;
     try {
-      json = rhoban_utils::file2Json("maintenance.json");
-    } catch (const rhoban_utils::JsonParsingError & exc) {
+      json = starkit_utils::file2Json("maintenance.json");
+    } catch (const starkit_utils::JsonParsingError & exc) {
       logger.error("%s", exc.what());
       return;
     }

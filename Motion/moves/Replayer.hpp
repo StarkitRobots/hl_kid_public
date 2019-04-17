@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Move.h"
-#include <rhoban_utils/spline/function.h>
+#include <starkit_utils/spline/function.h>
 
 #include <iostream>
 #include <string>
@@ -21,6 +21,6 @@ class Replayer : public Move
     protected:
         float time;
         float speed;
-        std::map<std::string, rhoban_utils::Function> splines;
+        std::map<std::string, starkit_utils::Function> splines;
         bool enable;
 };

@@ -3,7 +3,7 @@
 #include "TagsCollection.hpp"
 #include "TagsSheet.hpp"
 
-/// Describe an aruco calibration set designed by Rhoban. It is composed of
+/// Describe an aruco calibration set designed by Starkit. It is composed of
 /// 10 pannels, each pannel containing two sheets
 ///
 /// P9 is the basis of the robot

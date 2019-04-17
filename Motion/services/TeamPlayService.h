@@ -2,8 +2,8 @@
 
 #include <string>
 #include <map>
-#include <rhoban_utils/sockets/udp_broadcast.h>
-#include <rhoban_team_play/team_play.h>
+#include <starkit_utils/sockets/udp_broadcast.h>
+#include <starkit_team_play/team_play.h>
 #include <RhIO.hpp>
 #include "services/Service.h"
 
@@ -36,14 +36,14 @@ class TeamPlayService : public Service
          * Access a teamplay info 
          * struct of current robot
          */
-        const rhoban_team_play::TeamPlayInfo& selfInfo() const;
-        rhoban_team_play::TeamPlayInfo& selfInfo();
+        const starkit_team_play::TeamPlayInfo& selfInfo() const;
+        starkit_team_play::TeamPlayInfo& selfInfo();
 
         /**
          * Access to container to information 
          * on available other players
          */
-        const std::map<int, rhoban_team_play::TeamPlayInfo>& allInfo() const;
+        const std::map<int, starkit_team_play::TeamPlayInfo>& allInfo() const;
 
         /**
          * Read/Write network and 
@@ -77,13 +77,13 @@ class TeamPlayService : public Service
         /**
          * UDPBroadcast instance
          */
-        rhoban_utils::UDPBroadcast* _broadcaster;
+        starkit_utils::UDPBroadcast* _broadcaster;
 
         /**
          * Current and other robots infos
          */
-        rhoban_team_play::TeamPlayInfo _selfInfo;
-        std::map<int, rhoban_team_play::TeamPlayInfo> _allInfo;
+        starkit_team_play::TeamPlayInfo _selfInfo;
+        std::map<int, starkit_team_play::TeamPlayInfo> _allInfo;
 
         /**
          * Send and check 
@@ -110,7 +110,7 @@ class TeamPlayService : public Service
          * Parse given message 
          * and update teamplay state
          */
-        void processInfo(rhoban_team_play::TeamPlayInfo info);
+        void processInfo(starkit_team_play::TeamPlayInfo info);
 
         /**
          * Is the placing aggressive or defensive?

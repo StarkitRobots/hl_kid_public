@@ -7,13 +7,13 @@
 #include "Filters/FilterFactory.hpp"
 #include "CameraState/CameraState.hpp"
 
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 
 using Vision::Utils::CameraState;
-using ::rhoban_utils::TimeStamp;
+using ::starkit_utils::TimeStamp;
 
 using namespace std;
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 namespace Vision {
 
@@ -212,10 +212,10 @@ void Pipeline::addFiltersFromJson(const Json::Value & v, const std::string & dir
       }
     }
     std::vector<std::string> paths;
-    rhoban_utils::tryReadVector(v, "paths", &paths);
+    starkit_utils::tryReadVector(v, "paths", &paths);
     for (const std::string & path : paths) {
       std::string file_path = dir_name + path;
-      std::string read_dir_path = rhoban_utils::getDirName(file_path);
+      std::string read_dir_path = starkit_utils::getDirName(file_path);
       Json::Value path_value =  file2Json(file_path);
       try {
         std::cout << "adding from " << file_path << std::endl;
@@ -225,7 +225,7 @@ void Pipeline::addFiltersFromJson(const Json::Value & v, const std::string & dir
       }
     }
   } else {
-    throw rhoban_utils::JsonParsingError(DEBUG_INFO +
+    throw starkit_utils::JsonParsingError(DEBUG_INFO +
                                          " pipeline is not an array neither an object");
   }
 }
@@ -236,11 +236,11 @@ void Pipeline::fromJson(const Json::Value & v, const std::string & dir_name) {
   std::cout << "There is now " << _filters.size() << " filters." << std::endl;
 }
 
-void Pipeline::setTimestamp(const ::rhoban_utils::TimeStamp &ts) {
+void Pipeline::setTimestamp(const ::starkit_utils::TimeStamp &ts) {
   _timestamp = ts;
 }
   
-const rhoban_utils::TimeStamp& Pipeline::getTimestamp() const {
+const starkit_utils::TimeStamp& Pipeline::getTimestamp() const {
   return _timestamp;
 }
   

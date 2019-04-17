@@ -3,11 +3,11 @@
 #include <string>
 #include <RhIO.hpp>
 #include "scheduler/Helpers.h"
-#include <rhoban_utils/timing/elapse_tick.h>
+#include <starkit_utils/timing/elapse_tick.h>
 
 class MoveScheduler;
 
-class Move : public Helpers, public rhoban_utils::ElapseTick
+class Move : public Helpers, public starkit_utils::ElapseTick
 {
     public:
 

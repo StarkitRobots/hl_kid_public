@@ -6,7 +6,7 @@
 
 void buildinfos_print()
 {
-    printf("Starting RhobanServer, built by %s@%s commit %s at %s on %s\n",
+    printf("Starting StarkitServer, built by %s@%s commit %s at %s on %s\n",
         XSTR(VERSION_USER),
         XSTR(VERSION_HOSTNAME),
         XSTR(VERSION_NUM),

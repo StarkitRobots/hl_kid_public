@@ -8,7 +8,7 @@
 #include "Application/Application.hpp"
 #include "Utils/ImageLogger.h"
 
-#include "rhoban_utils/timing/time_stamp.h"
+#include "starkit_utils/timing/time_stamp.h"
 
 #include <Eigen/Core>
 #include <utility>
@@ -68,7 +68,7 @@ private:
 
   // Logging
   Utils::ImageLogger manual_logger;
-  rhoban_utils::TimeStamp endLog;
+  starkit_utils::TimeStamp endLog;
 
   Utils::ImageLogger moving_ball_logger;
   /// If enabled each time a robot kicks the ball or ball is detected as moving,
@@ -87,7 +87,7 @@ private:
   bool writeBallStatus;
 
   /// When was the ball moving for last time
-  rhoban_utils::TimeStamp lastBallMoving;
+  starkit_utils::TimeStamp lastBallMoving;
 
   void initImageHandlers();
 
@@ -210,7 +210,7 @@ public:
 
   /// In classic mode, uses steady clock.
   /// In fake mode, uses pipeline clock.
-  rhoban_utils::TimeStamp getNowTS() const;
+  starkit_utils::TimeStamp getNowTS() const;
 
   /**
    * Pipeline main loop thread
@@ -228,7 +228,7 @@ public:
 
   // Sensors and related
   Utils::CameraState * cs;
-  ::rhoban_utils::TimeStamp lastTS, sourceTS;
+  ::starkit_utils::TimeStamp lastTS, sourceTS;
 
   bool ballDetected;
   std::vector<double> ballsX, ballsY, ballsRadius;

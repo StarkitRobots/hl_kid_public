@@ -1,15 +1,15 @@
 #include "SpeedEstimator.hpp"
-#include "rhoban_utils/timing/time_stamp.h"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/timing/time_stamp.h"
+#include "starkit_utils/logging/logger.h"
 
 #include <RhIO.hpp>
 
 #include <cmath>
 
-using ::rhoban_utils::TimeStamp;
+using ::starkit_utils::TimeStamp;
 using namespace std;
 
-static rhoban_utils::Logger logger("SpeedEstimator");
+static starkit_utils::Logger logger("SpeedEstimator");
 
 namespace Vision {
 namespace Localisation {
@@ -20,7 +20,7 @@ SpeedEstimator::SpeedEstimator()
   initBinding();
 }
 
-void SpeedEstimator::update(const rhoban_utils::TimeStamp & ts,
+void SpeedEstimator::update(const starkit_utils::TimeStamp & ts,
                             const Eigen::Vector2d &pos) {
   // Debug message
   if (debug_level > 0) {

@@ -4,7 +4,7 @@
 
 #define FBPRINT_DEBUG(str...) if (debug_output) { printf("[CLIPPING] "); printf(str); }
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Filters {

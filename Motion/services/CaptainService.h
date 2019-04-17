@@ -1,9 +1,9 @@
 #pragma once
 
-#include <rhoban_geometry/point.h>
-#include <rhoban_utils/serialization/json_serializable.h>
-#include <rhoban_team_play/team_play.h>
-#include <rhoban_utils/sockets/udp_broadcast.h>
+#include <starkit_geometry/point.h>
+#include <starkit_utils/serialization/json_serializable.h>
+#include <starkit_team_play/team_play.h>
+#include <starkit_utils/sockets/udp_broadcast.h>
 #include <strategy/PlacementOptimizer.h>
 #include <thread>
 #include "Service.h"
@@ -20,24 +20,24 @@ public:
     struct Instruction
     {
         // Target position & orientation
-        rhoban_geometry::Point targetPosition;
+        starkit_geometry::Point targetPosition;
         float targetOrientation;
         
         // Captain order
-        rhoban_team_play::CaptainOrder order;
+        starkit_team_play::CaptainOrder order;
         
         // Consensus ball
-        rhoban_team_play::CommonBall ball;
+        starkit_team_play::CommonBall ball;
     };
     
     /**
      * Captain configuration
      */
-    struct Config : public rhoban_utils::JsonSerializable
+    struct Config : public starkit_utils::JsonSerializable
     {
         struct BasePosition
         {
-            rhoban_geometry::Point targetPosition;
+            starkit_geometry::Point targetPosition;
             bool mandatory;
             bool kickOff;
             float targetOrientation;
@@ -68,7 +68,7 @@ public:
     /**
      * Getting captain info
      */
-    rhoban_team_play::CaptainInfo getInfo();
+    starkit_team_play::CaptainInfo getInfo();
     
     /**
      * Get the captain instruction for us (see above)
@@ -91,10 +91,10 @@ protected:
     std::mutex mutex;
     
     // Either the info computed or the one grabbed from the captain
-    rhoban_team_play::CaptainInfo info;
+    starkit_team_play::CaptainInfo info;
     
     // Available robots
-    std::map<int, rhoban_team_play::TeamPlayInfo> robots;
+    std::map<int, starkit_team_play::TeamPlayInfo> robots;
     std::vector<int> robotIds;
     
     // Geometric parameters
@@ -132,8 +132,8 @@ protected:
     /// Has a mate kicked recently
     bool recentlyKicked;
     
-    std::vector<PlacementOptimizer::Target> getTargetPositions(rhoban_geometry::Point ball,
-        rhoban_geometry::Point ballTarget);
+    std::vector<PlacementOptimizer::Target> getTargetPositions(starkit_geometry::Point ball,
+        starkit_geometry::Point ballTarget);
 
     /// Perform a majority vote for ball position
     void updateCommonBall();
@@ -170,5 +170,5 @@ protected:
     /**
     * UDPBroadcast instance
     */
-    rhoban_utils::UDPBroadcast* _broadcaster;
+    starkit_utils::UDPBroadcast* _broadcaster;
 };

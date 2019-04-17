@@ -1,4 +1,4 @@
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/time_stamp.h>
 #include <services/TeamPlayService.h>
 #include <strategy/PlacementOptimizer.h>
 #include <services/RefereeService.h>
@@ -6,15 +6,15 @@
 #include <unistd.h>
 #include "CaptainService.h"
 
-#include <rhoban_geometry/point_cluster.h>
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/util.h>
+#include <starkit_geometry/point_cluster.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/util.h>
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 using namespace robocup_referee;
-using namespace rhoban_geometry;
+using namespace starkit_geometry;
 
-using rhoban_team_play::CommonOpponent;
+using starkit_team_play::CommonOpponent;
 
 static Logger logger("CaptainService");
 
@@ -135,7 +135,7 @@ CaptainService::CaptainService()
     bind.bindNew("recentlyKicked", recentlyKicked, RhIO::Bind::PushOnly);
     
     // Creating UDP broadcaster
-    _broadcaster = new rhoban_utils::UDPBroadcast(CAPTAIN_PORT, CAPTAIN_PORT);
+    _broadcaster = new starkit_utils::UDPBroadcast(CAPTAIN_PORT, CAPTAIN_PORT);
 }
 
 CaptainService::~CaptainService()
@@ -158,7 +158,7 @@ int CaptainService::findCaptainId()
     for (auto &entry : info) {
         auto &robotInfo = entry.second;
         if (!robotInfo.isOutdated() &&          // The robot info are not outdated
-           robotInfo.state != rhoban_team_play::Unknown &&       // The robot is in a known state
+           robotInfo.state != starkit_team_play::Unknown &&       // The robot is in a known state
            !referee->isPenalized(robotInfo.id)) {
                return robotInfo.id;
            }
@@ -175,10 +175,10 @@ bool CaptainService::amICaptain()
     return findCaptainId() == teamPlay->myId();
 }
 
-rhoban_team_play::CaptainInfo CaptainService::getInfo()
+starkit_team_play::CaptainInfo CaptainService::getInfo()
 {
     mutex.lock();
-    rhoban_team_play::CaptainInfo tmp = info;
+    starkit_team_play::CaptainInfo tmp = info;
     mutex.unlock();
     
     return tmp;
@@ -212,7 +212,7 @@ void CaptainService::setSolution(PlacementOptimizer::Solution solution)
         info.robotTarget[robot-1][0] = target.position.x;
         info.robotTarget[robot-1][1] = target.position.y;
         info.robotTarget[robot-1][2] = target.orientation;
-        info.order[robot-1] = rhoban_team_play::CaptainOrder::Place;
+        info.order[robot-1] = starkit_team_play::CaptainOrder::Place;
         // std::cout << "CAPTAIN: Robot #" << robot << " should go to " << target.position.x << ", " << target.position.y << std::endl;
     }    
 }
@@ -223,7 +223,7 @@ void CaptainService::updateCommonBall()
   std::vector<Point> balls;
   bool tmpKicked = false;
   for (const auto & robot_entry : robots) {
-    const rhoban_team_play::TeamPlayInfo & info = robot_entry.second;
+    const starkit_team_play::TeamPlayInfo & info = robot_entry.second;
 
     if (info.ballOk && info.timeSinceLastKick > kickMemoryDuration) {
       balls.push_back(Point(info.getBallInField()));
@@ -290,7 +290,7 @@ void CaptainService::updateCommonOpponents() {
   std::vector<Point> mates;
   // Gathering all published obstacles and mates positions
   for (const auto & robot_entry : robots) {
-    const rhoban_team_play::TeamPlayInfo & info = robot_entry.second;
+    const starkit_team_play::TeamPlayInfo & info = robot_entry.second;
     mates.push_back(Point(info.fieldX, info.fieldY));
     for (int k = 0; k < info.nbObstacles; k++) {
       obstacles.push_back(Point(info.obstacles[k][0], info.obstacles[k][1]));
@@ -388,7 +388,7 @@ void CaptainService::computeBasePositions()
         info.robotTarget[goalId-1][0] = -Constants::field.fieldLength/2 + 0.25;
         info.robotTarget[goalId-1][1] = 0;
         info.robotTarget[goalId-1][2] = 0;
-        info.order[goalId-1] = rhoban_team_play::CaptainOrder::Place;
+        info.order[goalId-1] = starkit_team_play::CaptainOrder::Place;
     }
 }
 
@@ -485,7 +485,7 @@ void CaptainService::computePlayingPositions()
         // No one is seeing the ball, ordering all to search
         for (auto &entry : robots) {
             auto &robot = entry.second;
-            info.order[robot.id-1] = rhoban_team_play::CaptainOrder::SearchBall;
+            info.order[robot.id-1] = starkit_team_play::CaptainOrder::SearchBall;
         }
         handler = -1;
         return;
@@ -538,10 +538,10 @@ void CaptainService::computePlayingPositions()
       
       if (robot.id == newHandler) {
         // std::cout << "NewHandler is " << newHandler << std::endl;
-        info.order[robot.id-1] = rhoban_team_play::CaptainOrder::HandleBall;
+        info.order[robot.id-1] = starkit_team_play::CaptainOrder::HandleBall;
       } else {
-        if (robot.state != rhoban_team_play::TeamPlayState::GoalKeeping) {
-          info.order[robot.id-1] = rhoban_team_play::CaptainOrder::Place;
+        if (robot.state != starkit_team_play::TeamPlayState::GoalKeeping) {
+          info.order[robot.id-1] = starkit_team_play::CaptainOrder::Place;
           for (int n=0; n<3; n++) {
             info.robotTarget[robot.id-1][n] = 0;
           }
@@ -597,8 +597,8 @@ void CaptainService::compute()
         auto info = entry.second;
         if (!info.isOutdated() && // Info should not be updated
         !referee->isPenalized(info.id) &&  // Robot should not be penalized
-        info.state != rhoban_team_play::Unknown && // It should be playing
-        info.state != rhoban_team_play::Inactive &&
+        info.state != starkit_team_play::Unknown && // It should be playing
+        info.state != starkit_team_play::Inactive &&
         info.fieldOk &&  // It knows where it is
         info.fieldX == info.fieldX && // The values are not NaNs
         info.fieldY == info.fieldY &&
@@ -631,7 +631,7 @@ bool CaptainService::tick(double elapsed)
         });
     }
     
-    rhoban_team_play::CaptainInfo receive;
+    starkit_team_play::CaptainInfo receive;
     size_t len = sizeof(receive);
     
     // Check for incoming captain messages
@@ -643,7 +643,7 @@ bool CaptainService::tick(double elapsed)
         
         mutex.lock();
         info = receive;
-        info.timestamp = rhoban_utils::TimeStamp::now().getTimeMS();
+        info.timestamp = starkit_utils::TimeStamp::now().getTimeMS();
         handler = info.getHandler();
         mutex.unlock();
     }
@@ -654,14 +654,14 @@ bool CaptainService::tick(double elapsed)
 void CaptainService::execThread()
 {
     bind.pull();
-    auto lastTick = rhoban_utils::TimeStamp::now();
+    auto lastTick = starkit_utils::TimeStamp::now();
     auto teamPlay = getServices()->teamPlay;
     
     while (running) {
         bind.pull();
         IAmCaptain = amICaptain();
         captainId = findCaptainId();
-        lastTick = rhoban_utils::TimeStamp::now();
+        lastTick = starkit_utils::TimeStamp::now();
         // Updating
         if (teamPlay->isEnabled()) {
             if (IAmCaptain) {
@@ -680,7 +680,7 @@ void CaptainService::execThread()
         bind.push();
         
         // Sleepint if needed to fit the given frequency
-        auto now = rhoban_utils::TimeStamp::now();
+        auto now = starkit_utils::TimeStamp::now();
         double elapsed = diffSec(lastTick, now);
         double toSleep = (1.0/CAPTAIN_FREQUENCY) - elapsed;
         if (toSleep > 0) {

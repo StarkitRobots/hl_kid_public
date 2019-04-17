@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rhoban_geometry/point.h>
+#include <starkit_geometry/point.h>
 #include <services/TeamPlayService.h>
 #include "STM.h"
 
@@ -13,8 +13,8 @@ class PlayingMove : public STM
 public:
   struct Place {
     bool ok;
-    rhoban_geometry::Point position;
-    rhoban_utils::Angle orientation;
+    starkit_geometry::Point position;
+    starkit_utils::Angle orientation;
   };
 
   PlayingMove(Walk *walk);
@@ -26,7 +26,7 @@ public:
         
   virtual void enterState(std::string state);
   virtual void exitState(std::string state);
-  void setTeamPlayState(rhoban_team_play::TeamPlayState state);
+  void setTeamPlayState(starkit_team_play::TeamPlayState state);
 
 protected:
   double t;

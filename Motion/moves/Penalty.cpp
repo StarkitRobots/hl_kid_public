@@ -6,9 +6,9 @@
 #include "PenaltyKickController.h"
 #include "StandUp.h"
 #include "Head.h"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
-static rhoban_utils::Logger logger("Penalty");
+static starkit_utils::Logger logger("Penalty");
         
 Penalty::Penalty(PenaltyKickController *controler)
     : controler(controler)

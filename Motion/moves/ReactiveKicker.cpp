@@ -3,8 +3,8 @@
 #include "Walk.h"
 #include <services/LocalisationService.h>
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
 ReactiveKicker::ReactiveKicker(Walk * walk) : ApproachMove(walk)
 {

@@ -1,6 +1,6 @@
 #include "ApproachMove.h"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
 #include "KickController.h"
 #include "Walk.h"
@@ -13,11 +13,11 @@
 #include <iostream>
 
 using csa_mdp::KickZone;
-using namespace rhoban_utils;
-using namespace rhoban_geometry;
-using namespace rhoban_team_play;
+using namespace starkit_utils;
+using namespace starkit_geometry;
+using namespace starkit_team_play;
 
-static rhoban_utils::Logger logger("ApproachMove");
+static starkit_utils::Logger logger("ApproachMove");
 
 ApproachMove::ApproachMove(Walk * walk_)
   : walk(walk_), expectedKick("classic")

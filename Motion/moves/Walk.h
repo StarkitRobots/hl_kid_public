@@ -3,13 +3,13 @@
 #include <deque>
 #include <map>
 #include <string>
-#include <rhoban_utils/spline/function.h>
+#include <starkit_utils/spline/function.h>
 #include "Move.h"
 #include <Model/HumanoidFixedModel.hpp>
 #include <Types/MatrixLabel.hpp>
 #include <Utils/Scheduling.hpp>
-#include <rhoban_unsorted/log_model.h>
-#include <rhoban_utils/history/history.h>
+#include <starkit_unsorted/log_model.h>
+#include <starkit_utils/history/history.h>
 #include <QuinticWalk/QuinticWalk.hpp>
 
 class Kick;
@@ -152,7 +152,7 @@ class Walk : public Move
         float pressureYStd;
         float pressureYStdThresholdWarmup;
         float pressureYStdThresholdCooldown;
-        rhoban_utils::History ratioHistory;
+        starkit_utils::History ratioHistory;
         std::string walkKickName;
         double walkStep;
         double walkLateral;
@@ -216,7 +216,7 @@ class Walk : public Move
         float stepTrim, lateralTrim, turnTrim;
 
         // Model Logging
-        rhoban_unsorted::LogModel _logs;
+        starkit_unsorted::LogModel _logs;
 
         // Apply walk params update at fixed phase
         double lastPhase;

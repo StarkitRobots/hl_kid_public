@@ -19,7 +19,7 @@ KickPhilipp::KickPhilipp() :
         &KickPhilipp::cmdStart, *this);
     //Bind members
     bind->bindNew("filename", _filename, RhIO::Bind::PullOnly)
-        ->defaultValue("/home/rhoban/trajKick_vel1.0_x0.02_2016-08-18-12-46-56.splines");
+        ->defaultValue("/home/starkit/trajKick_vel1.0_x0.02_2016-08-18-12-46-56.splines");
     bind->bindNew("t", _t, RhIO::Bind::PushOnly)
         ->defaultValue(-1.0);
     bind->bindNew("timeGain", _timeGain, RhIO::Bind::PullOnly)

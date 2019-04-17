@@ -2,7 +2,7 @@
 
 #include "Utils/Segment.hpp"
 
-#include "rhoban_geometry/parametric_line.h"
+#include "starkit_geometry/parametric_line.h"
 #include <vector>
 #include <map>
 /**
@@ -29,7 +29,7 @@ public:
 
   static const std::vector<Utils::Segment> &getLines();
   static const std::vector<Utils::Segment> &getGoals();
-  static const std::vector<rhoban_geometry::ParametricLine> &getArenaBorders();
+  static const std::vector<starkit_geometry::ParametricLine> &getArenaBorders();
   static std::vector<cv::Point2f> getGoalPosts();
   static std::vector<cv::Point2f> getArenaCorners();
 
@@ -76,7 +76,7 @@ private:
   std::vector<cv::Point2f> fieldMarks;
   std::vector<Utils::Segment> goals;
   std::vector<cv::Point2f> arenaCorners;
-  std::vector<rhoban_geometry::ParametricLine> arenaBorders;
+  std::vector<starkit_geometry::ParametricLine> arenaBorders;
   std::map<int, cv::Point3f> tags;
 };
 }

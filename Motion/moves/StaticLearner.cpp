@@ -1,9 +1,9 @@
 #include <math.h>
 #include "StaticLearner.hpp"
 #include <RhIO.hpp>
-#include <rhoban_utils/angle.h>
+#include <starkit_utils/angle.h>
 #include <Model/HumanoidFloatingModel.hpp>
-#include <rhoban_utils/control/variation_bound.h>
+#include <starkit_utils/control/variation_bound.h>
 #include "services/ModelService.h"
 #include <cstring>
 #include <RhAL.hpp>
@@ -12,7 +12,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
-#include "rhoban_utils/util.h"
+#include "starkit_utils/util.h"
 
 #define ISMX true
 #ifndef ISMX
@@ -31,7 +31,7 @@
 
 std::vector<std::string> split(const std::string &s, char delim) {
   std::vector<std::string> elems;
-  rhoban_utils::split(s, delim, elems);
+  starkit_utils::split(s, delim, elems);
   return elems;
 }
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/time_stamp.h>
 
 #include <opencv2/core/core.hpp>
 
@@ -25,7 +25,7 @@ namespace Utils {
 /// 2. Images are written directly
 class ImageLogger {
 public:
-  typedef std::pair<rhoban_utils::TimeStamp,cv::Mat> Entry;
+  typedef std::pair<starkit_utils::TimeStamp,cv::Mat> Entry;
 
   /// Create a Logger
   /// @param logger_prefix The prefix for all sessions using this ImageLogger

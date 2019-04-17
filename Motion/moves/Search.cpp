@@ -8,7 +8,7 @@
 #include "Search.h"
 #include "Walk.h"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
 // Waiting for the referee to start us
 #define STATE_WAIT      "wait"
@@ -23,7 +23,7 @@
 // Going to a shared ball position
 #define STATE_SHARED    "shared"
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 static Logger logger("SearchSTM");
 

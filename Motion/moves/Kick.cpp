@@ -1,15 +1,15 @@
 #include <math.h>
 #include <services/LocalisationService.h>
 #include <services/StrategyService.h>
-#include <rhoban_utils/angle.h>
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/util.h>
+#include <starkit_utils/angle.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/util.h>
 #include "Kick.h"
 
 #include <set>
 
-static rhoban_utils::Logger logger("kick");
-using namespace rhoban_utils;
+static starkit_utils::Logger logger("kick");
+using namespace starkit_utils;
 
 // DOFs
 static std::vector<std::string> dofs = {
@@ -67,7 +67,7 @@ std::map<std::string, Function> Kick::loadCompiledKick(std::string filename)
     std::map<std::string, Function> splines;
     try { 
       splines = Function::fromFile(filename);
-    } catch (const rhoban_utils::JsonParsingError & exc) {
+    } catch (const starkit_utils::JsonParsingError & exc) {
       logger.error("%s", exc.what());
       return splines;
     }
@@ -193,7 +193,7 @@ std::string Kick::cmdKickGen()
 
       // Re loading kicks
       loadCompiledKicks();
-  } catch (const rhoban_utils::JsonParsingError & exc) {
+  } catch (const starkit_utils::JsonParsingError & exc) {
       logger.error("%s", exc.what());
       return exc.what();
   }

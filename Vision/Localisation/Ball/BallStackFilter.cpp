@@ -5,10 +5,10 @@
 #include <services/LocalisationService.h>
 #include <scheduler/MoveScheduler.h>
 
-#include "rhoban_utils/angle.h"
+#include "starkit_utils/angle.h"
 
 using namespace Vision::Utils;
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Localisation {

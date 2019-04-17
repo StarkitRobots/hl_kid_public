@@ -7,7 +7,7 @@
 
 namespace Vision {
 namespace Application {
-class Application : public rhoban_utils::JsonSerializable {
+class Application : public starkit_utils::JsonSerializable {
 public:
   Application();
   virtual ~Application();

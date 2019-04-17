@@ -7,12 +7,12 @@
 #include <vector>
 #include "RhIO.hpp"
 
-#include "rhoban_utils/logging/logger.h"
-static rhoban_utils::Logger out("ArenaCornerObservation");
+#include "starkit_utils/logging/logger.h"
+static starkit_utils::Logger out("ArenaCornerObservation");
 
 using Vision::Utils::CameraState;
 using robocup_referee::Constants;
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 // double getMinScore() const override; à implémenter
 // les observations elle naviguent entre pError et 1.0
@@ -276,9 +276,9 @@ Json::Value ArenaCornerObservation::toJson() const {
 }
 
 void ArenaCornerObservation::fromJson(const Json::Value & v, const std::string & dir_name) {
-  rhoban_utils::tryRead(v,"robotHeight",&robotHeight);
-  rhoban_utils::tryRead(v,"pan",&pan);
-  rhoban_utils::tryRead(v,"tilt",&tilt);
+  starkit_utils::tryRead(v,"robotHeight",&robotHeight);
+  starkit_utils::tryRead(v,"pan",&pan);
+  starkit_utils::tryRead(v,"tilt",&tilt);
 }
 
 double ArenaCornerObservation::getMinScore() const {

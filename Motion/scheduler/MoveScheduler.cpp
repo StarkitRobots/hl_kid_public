@@ -4,12 +4,12 @@
 #include <sys/types.h>
 
 #include "scheduler/MoveScheduler.h"
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/time_stamp.h>
 #include <Devices/PressureSensor.hpp>
 #include "Helpers.h"
 
 using namespace std;
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 // TODO: Remove this (could be an attribute of the scheduler), this
 // was done to avoid a big re-compile

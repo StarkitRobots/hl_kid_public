@@ -11,9 +11,9 @@ void KickController::initBindings()
 }
 
 
-rhoban_utils::Angle KickController::getKickDir() const
+starkit_utils::Angle KickController::getKickDir() const
 {
-  return rhoban_utils::Angle(kick_dir);
+  return starkit_utils::Angle(kick_dir);
 }
 
 double KickController::getTolerance() const

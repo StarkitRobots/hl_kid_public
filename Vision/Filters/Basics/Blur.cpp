@@ -1,10 +1,10 @@
 #include "Filters/Basics/Blur.hpp"
 
 #include <opencv2/imgproc/imgproc.hpp>
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 #include "opencv2/ocl/ocl.hpp"
 
-using rhoban_utils::Benchmark;
+using starkit_utils::Benchmark;
 
 namespace Vision {
 namespace Filters {

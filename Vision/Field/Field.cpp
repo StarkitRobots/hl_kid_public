@@ -19,7 +19,7 @@
 
 using namespace Vision::Utils;
 using robocup_referee::Constants;
-using namespace rhoban_geometry;
+using namespace starkit_geometry;
 
 namespace Vision {
 namespace Field {

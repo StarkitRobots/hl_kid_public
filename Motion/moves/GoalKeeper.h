@@ -3,7 +3,7 @@
 #include "STM.h"
 
 #include <services/TeamPlayService.h>
-#include <rhoban_geometry/point.h>
+#include <starkit_geometry/point.h>
 
 class Walk;
 class Approach;
@@ -20,7 +20,7 @@ public:
   void step(float elapsed);
   void enterState(std::string state);
   void exitState(std::string state);
-  rhoban_team_play::TeamPlayState teamState();
+  starkit_team_play::TeamPlayState teamState();
 
 protected:
   Walk *walk;
@@ -34,13 +34,13 @@ protected:
   bool ignoreBallHys();
   bool isNearHome();
   bool isNearHomeHys();
-  rhoban_geometry::Point getAlignPoint(const rhoban_geometry::Point &,float &);
-  rhoban_geometry::Point home();
+  starkit_geometry::Point getAlignPoint(const starkit_geometry::Point &,float &);
+  starkit_geometry::Point home();
   bool isAligned();
-  rhoban_geometry::Point shootLineCenter();  
+  starkit_geometry::Point shootLineCenter();  
   void bufferedSetState(const std::string &);
   
-  void setTeamPlayState(rhoban_team_play::TeamPlayState state);
+  void setTeamPlayState(starkit_team_play::TeamPlayState state);
   
   bool stopPosture;
   float t;

@@ -1,6 +1,6 @@
 #include "moves/ArucoCalibration.h"
 #include "Walk.h"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 #include "scheduler/MoveScheduler.h"
 #include "services/LocalisationService.h"
 #include "services/ModelService.h"
@@ -8,13 +8,13 @@
 #include <Model/HumanoidFixedModel.hpp>
 #include <Model/NamesModel.h>
 #include <cmath>
-#include <rhoban_utils/angle.h>
+#include <starkit_utils/angle.h>
 
 #include "Tags/CalibrationSet.hpp"
 
 #include <string>
 
-static rhoban_utils::Logger logger("ArucoCalibration");
+static starkit_utils::Logger logger("ArucoCalibration");
 
 // All of the above should be done in the vision world.
 // This move should only handle the motion inteligence and set a flag in

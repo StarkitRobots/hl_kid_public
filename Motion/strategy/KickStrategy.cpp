@@ -1,8 +1,8 @@
 #include <cmath>
 #include <iostream>
 #include <robocup_referee/constants.h>
-#include <rhoban_utils/util.h>
-#include <rhoban_utils/serialization/json_serializable.h>
+#include <starkit_utils/util.h>
+#include <starkit_utils/serialization/json_serializable.h>
 
 #include "KickStrategy.hpp"
 
@@ -54,8 +54,8 @@ bool KickStrategy::fromJson(std::string filename)
     actions.clear();
     Json::Value json;
     try { 
-        json = rhoban_utils::file2Json(filename);
-    } catch (const rhoban_utils::JsonParsingError & exc) {
+        json = starkit_utils::file2Json(filename);
+    } catch (const starkit_utils::JsonParsingError & exc) {
         std::cerr << "KickStrategy::fromJson: " << exc.what() << std::endl;
         return false;
     }
@@ -141,5 +141,5 @@ void KickStrategy::writeCSV(const std::string & path) {
       out << X << "," << Y << "," << kickName << "," << kickDir  << std::endl;
     }
   }
-  rhoban_utils::file_put_contents(path, out.str());
+  starkit_utils::file_put_contents(path, out.str());
 }

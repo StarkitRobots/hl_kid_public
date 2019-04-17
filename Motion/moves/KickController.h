@@ -4,7 +4,7 @@
 
 #include "problems/kick_controler.h"//from csa_mdp_experiments
 
-#include "rhoban_utils/angle.h"
+#include "starkit_utils/angle.h"
 
 class Walk;
 
@@ -17,7 +17,7 @@ public:
   void initBindings();
 
   /// Return the wished direction for the next kick
-  rhoban_utils::Angle getKickDir() const;
+  starkit_utils::Angle getKickDir() const;
 
   /// Returns the accepted tolerance for the next kick +/- [deg] 
   double getTolerance() const;

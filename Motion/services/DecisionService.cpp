@@ -2,14 +2,14 @@
 #include "LocalisationService.h"
 #include "TeamPlayService.h"
 #include "RefereeService.h"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 #include "robocup_referee/constants.h"
 
-using namespace rhoban_utils;
-using namespace rhoban_team_play;
+using namespace starkit_utils;
+using namespace starkit_team_play;
 using namespace robocup_referee;
 
-static rhoban_utils::Logger logger("Decision");
+static starkit_utils::Logger logger("Decision");
 
 DecisionService::DecisionService()
   : bind("decision")
@@ -302,7 +302,7 @@ bool DecisionService::tick(double elapsed)
     bool tmpIsBallMoving = false;
     bool tmpIsMateKicking = false;
     for (const auto & pair :  teamplayInfos) {
-      const rhoban_team_play::TeamPlayInfo & robotInfo = pair.second;
+      const starkit_team_play::TeamPlayInfo & robotInfo = pair.second;
       float vx = robotInfo.ballVelX;
       float vy = robotInfo.ballVelY;
       float ballSpeed = std::sqrt(vx * vx + vy * vy);

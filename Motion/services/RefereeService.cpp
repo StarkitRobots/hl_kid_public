@@ -1,10 +1,10 @@
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/logging/logger.h>
 #include "DecisionService.h"
 #include "LocalisationService.h"
 #include "RefereeService.h"
 #include <RhIO.hpp>
 
-static rhoban_utils::Logger out("referee");
+static starkit_utils::Logger out("referee");
 using namespace robocup_referee;
 
 RefereeService::RefereeService()

@@ -3,7 +3,7 @@
 namespace Vision {
 namespace Localisation {
 
-class FieldObservationSet : public rhoban_utils::JsonSerializable {
+class FieldObservationSet : public starkit_utils::JsonSerializable {
 public:
   std::vector<SerializableFieldObservation *> observations;
 

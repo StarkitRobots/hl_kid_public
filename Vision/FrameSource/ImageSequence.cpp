@@ -7,7 +7,7 @@
 
 #include <opencv2/highgui/highgui.hpp>
 
-#include "rhoban_utils/util.h"
+#include "starkit_utils/util.h"
 
 using namespace cv;
 using namespace std;
@@ -65,7 +65,7 @@ void ImageSequence::loadImages(const std::string &fileName) {
   std::string line;
   while (getline(in, line)) {
     std::vector<std::string> values;
-    rhoban_utils::split(line, ',', values);
+    starkit_utils::split(line, ',', values);
     timestamps.push_back(std::stoul(values[0]));
     images.push_back(values[1]);
   }

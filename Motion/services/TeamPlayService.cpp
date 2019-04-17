@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdexcept>
-#include <rhoban_utils/timing/time_stamp.h>
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/timing/time_stamp.h>
+#include <starkit_utils/logging/logger.h>
 
 #include "DecisionService.h"
 #include "LocalisationService.h"
@@ -9,11 +9,11 @@
 #include "RefereeService.h"
 #include "TeamPlayService.h"
 
-static rhoban_utils::Logger logger("teamplay_service");
+static starkit_utils::Logger logger("teamplay_service");
 
-using namespace rhoban_utils;
-using namespace rhoban_geometry;
-using namespace rhoban_team_play;
+using namespace starkit_utils;
+using namespace starkit_geometry;
+using namespace starkit_team_play;
 
 TeamPlayService::TeamPlayService() :
     _bind(nullptr),
@@ -45,7 +45,7 @@ TeamPlayService::TeamPlayService() :
         ->defaultValue(10.0);
 
     //Initialize UDP communication
-    _broadcaster = new rhoban_utils::UDPBroadcast(TEAM_PLAY_PORT, TEAM_PLAY_PORT);
+    _broadcaster = new starkit_utils::UDPBroadcast(TEAM_PLAY_PORT, TEAM_PLAY_PORT);
     _t = 0;
 
     //Initialize self info
@@ -140,7 +140,7 @@ void TeamPlayService::messageSend()
         auto loc = getServices()->localisation;
         //Setting message hour
         uint16_t ms_unused;
-        rhoban_utils::Logger::getTime(_selfInfo.hour, _selfInfo.min, _selfInfo.sec, ms_unused);
+        starkit_utils::Logger::getTime(_selfInfo.hour, _selfInfo.min, _selfInfo.sec, ms_unused);
         //Ball position in self
         Point ballPos = loc->getBallPosSelf();
         Point ballVel = loc->getBallSpeedSelf();
@@ -186,7 +186,7 @@ void TeamPlayService::messageSend()
         _selfInfo.stateSearch[sizeof(_selfInfo.stateSearch)-1] = '\0';
         _selfInfo.hardwareWarnings[sizeof(_selfInfo.hardwareWarnings)-1] = '\0';
         // Adding obstacles to message
-        std::vector<rhoban_geometry::Point> opponents = loc->getOpponentsField();
+        std::vector<starkit_geometry::Point> opponents = loc->getOpponentsField();
         _selfInfo.nbObstacles = std::min(opponents.size(), (size_t)MAX_OBSTACLES);
         if (opponents.size() > MAX_OBSTACLES) {
           logger.warning("Too many obstacles to broadcast");

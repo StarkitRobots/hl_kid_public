@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/time_stamp.h>
 
 #include <Eigen/Core>
 
@@ -19,7 +19,7 @@ public:
   SpeedEstimator();
 
   // Insert the value if it is not equivalent to the last on
-  void update(const rhoban_utils::TimeStamp & ts,
+  void update(const starkit_utils::TimeStamp & ts,
               const Eigen::Vector2d & pos);
 
   Eigen::Vector2d getSpeed(); // in m/s, in world referential
@@ -28,7 +28,7 @@ public:
   Eigen::Vector2d getUsableSpeed();
 
 private:
-  typedef std::pair<rhoban_utils::TimeStamp, Eigen::Vector2d> TimedPosition;
+  typedef std::pair<starkit_utils::TimeStamp, Eigen::Vector2d> TimedPosition;
   typedef std::pair<Eigen::Vector2d, double> WeightedSpeed;
 
   RhIO::Bind * bind;

@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    TCLAP::CmdLine cmd("RhobanServer", ' ', "0.1");
+    TCLAP::CmdLine cmd("StarkitServer", ' ', "0.1");
     TCLAP::ValueArg<double> accuracy("a", "accuracy", "Accuracy", false, 0.2, "accuracy", cmd);
     TCLAP::ValueArg<double> angleAccuracy("d", "angle-accuracy", "Accuracy", false, 5, "angle-accuracy", cmd);
     TCLAP::ValueArg<double> goalie("G", "goalie-width", "Goal width", false, 0, "goalie-width", cmd);

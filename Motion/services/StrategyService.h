@@ -3,7 +3,7 @@
 #include "Service.h"
 #include "kick_model/kick_model_collection.h"
 
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/time_stamp.h>
 
 class ApproachMove;
 class KickController;
@@ -59,5 +59,5 @@ private:
   csa_mdp::KickModelCollection kmc;
 
   /// When was last kick performed
-  rhoban_utils::TimeStamp lastKick;
+  starkit_utils::TimeStamp lastKick;
 };

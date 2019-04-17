@@ -1,9 +1,9 @@
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/time_stamp.h>
 #include "scheduler/MoveScheduler.h"
 #include "moves/Move.h"
 #include "services/Services.h"
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 using namespace std;
 
 Move::Move() :

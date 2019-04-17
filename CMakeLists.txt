@@ -5,21 +5,21 @@ find_package(catkin REQUIRED COMPONENTS
   RhAL
   model
   robocup_referee
-  rhoban_graphs
-  rhoban_random
-  rhoban_unsorted
+  starkit_graphs
+  starkit_random
+  starkit_unsorted
   tiny-dnn
   aruco
   tclap
-  rhoban_team_play
-  rhoban_model_learning
+  starkit_team_play
+  starkit_model_learning
   csa_mdp_experiments
   )
 
 catkin_package(
   INCLUDE_DIRS Motion/
   #LIBRARIES #TODO: which libraries are published?
-  CATKIN_DEPENDS tclap RhAL model robocup_referee rhoban_graphs rhoban_team_play rhoban_random rhoban_unsorted rhoban_model_learning
+  CATKIN_DEPENDS tclap RhAL model robocup_referee starkit_graphs starkit_team_play starkit_random starkit_unsorted starkit_model_learning
 )
 
 #Build option

@@ -1,9 +1,9 @@
 #include "RobotFilter.hpp"
 
-#include <rhoban_utils/angle.h>
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/angle.h>
+#include <starkit_utils/logging/logger.h>
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 static Logger logger("RobotFilter");
 

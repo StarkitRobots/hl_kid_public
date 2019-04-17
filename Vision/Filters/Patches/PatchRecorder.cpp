@@ -2,14 +2,14 @@
 
 #include "PatchProvider.hpp"
 
-#include "rhoban_utils/logging/logger.h"
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/logging/logger.h"
+#include "starkit_utils/timing/benchmark.h"
 
 #include <opencv2/opencv.hpp>
 
-using rhoban_utils::Benchmark;
+using starkit_utils::Benchmark;
 
-rhoban_utils::Logger logger("PatchRecorder");
+starkit_utils::Logger logger("PatchRecorder");
 
 namespace Vision
 {
@@ -42,7 +42,7 @@ Json::Value PatchRecorder::toJson() const
 void PatchRecorder::fromJson(const Json::Value & v, const std::string & dir_name)
 {
   Filter::fromJson(v, dir_name);
-  rhoban_utils::tryRead(v,"prefix",&prefix);
+  starkit_utils::tryRead(v,"prefix",&prefix);
 }
 
 int PatchRecorder::expectedDependencies() const

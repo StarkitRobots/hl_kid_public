@@ -11,7 +11,7 @@
 #include "Head.h"
 #include "Walk.h"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
 #define STATE_INITIAL   "initial"
 #define STATE_WAITING   "waiting"
@@ -23,10 +23,10 @@
 #define STATE_GIVE_UP   "give_up"
 #define STATE_FINISHED "finished"
 
-static rhoban_utils::Logger logger("RobocupSTM");
+static starkit_utils::Logger logger("RobocupSTM");
 
-using namespace rhoban_geometry;
-using namespace rhoban_team_play;
+using namespace starkit_geometry;
+using namespace starkit_team_play;
 
 Robocup::Robocup(Walk *walk, StandUp *standup, Placer *placer)
     : walk(walk), standup(standup), placer(placer)

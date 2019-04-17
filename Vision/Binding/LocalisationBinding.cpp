@@ -22,8 +22,8 @@
 
 #include "unistd.h"
 
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/util.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/util.h>
 #include <utility>
 #include <string>
 #include <vector>
@@ -31,11 +31,11 @@
 #include <cmath>
 #include <cstdlib>
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 using namespace Vision::Localisation;
 using Vision::Utils::CameraState;
 
-static rhoban_utils::Logger fieldLogger("RobocupFieldPF");
+static starkit_utils::Logger fieldLogger("RobocupFieldPF");
 
 namespace Vision
 {
@@ -624,7 +624,7 @@ LocalisationBinding::ObservationVector LocalisationBinding::extractObservations(
 }
 
 void LocalisationBinding::updateFilter(
-  const std::vector<rhoban_unsorted::Observation<Localisation::FieldPosition> *> & obs)
+  const std::vector<starkit_unsorted::Observation<Localisation::FieldPosition> *> & obs)
 {
   ModelService * model_service = scheduler->getServices()->model;
 
@@ -728,14 +728,14 @@ void LocalisationBinding::publishToLoc()
 }
 
 void LocalisationBinding::applyWatcher(
-  const std::vector<rhoban_unsorted::Observation<Localisation::FieldPosition> *> & obs)
+  const std::vector<starkit_unsorted::Observation<Localisation::FieldPosition> *> & obs)
 {
   // Apply HighLevel PF
   double stepDeltaScore = -consistencyStepCost;
   const auto &particle = field_filter->getRepresentativeParticle();
-  std::vector<rhoban_unsorted::BoundedScoreObservation<FieldPosition> *> castedObservations;
+  std::vector<starkit_unsorted::BoundedScoreObservation<FieldPosition> *> castedObservations;
   int obsId = 0;
-  for (rhoban_unsorted::Observation<FieldPosition> *o : obs) {
+  for (starkit_unsorted::Observation<FieldPosition> *o : obs) {
     GoalObservation * goalObs = dynamic_cast<GoalObservation *>(o);
     // Ignore non goal observations for quality check
     if (goalObs == nullptr) {

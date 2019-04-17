@@ -1,7 +1,7 @@
 #include "Filters/Features/TagsDetector.hpp"
 
-#include "rhoban_utils/logging/logger.h"
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/logging/logger.h"
+#include "starkit_utils/timing/benchmark.h"
 
 #include <cvdrawingutils.h>
 #include <vector>
@@ -9,9 +9,9 @@
 
 using namespace aruco;
 using namespace std;
-using ::rhoban_utils::Benchmark;
+using ::starkit_utils::Benchmark;
 
-static rhoban_utils::Logger out("TagsDetector");
+static starkit_utils::Logger out("TagsDetector");
 
 namespace Vision {
 namespace Filters {

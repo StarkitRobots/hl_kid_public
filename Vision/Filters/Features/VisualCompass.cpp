@@ -2,15 +2,15 @@
 #include "Filters/Features/VisualCompass.hpp"
 
 #include <opencv2/legacy/legacy.hpp>
-#include "rhoban_utils/timing/time_stamp.h"
+#include "starkit_utils/timing/time_stamp.h"
 #include "Utils/RotatedRectUtils.hpp"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 #include "CameraState/CameraState.hpp"
 #include <vector>
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 #include "services/ModelService.h"
 #include <cmath>
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 #include "Filters/Features/homography_decomp.hpp"
 #include <cvdrawingutils.h>
 #include <opencv2/calib3d/calib3d.hpp>
@@ -23,10 +23,10 @@
 #define NATIVE_WIDTH 1280
 #define NATIVE_HEIGHT 960
 
-using ::rhoban_utils::Benchmark;
+using ::starkit_utils::Benchmark;
 using namespace aruco;
-using namespace rhoban_utils;
-static rhoban_utils::Logger out("VisualCompass");
+using namespace starkit_utils;
+static starkit_utils::Logger out("VisualCompass");
 
 namespace Vision {
 namespace Filters {

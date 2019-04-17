@@ -5,15 +5,15 @@
 
 #include "RhIO.hpp"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
 #include "Utils/Interface.h"
 
-static rhoban_utils::Logger out("GoalObservation");
+static starkit_utils::Logger out("GoalObservation");
 
 using Vision::Utils::CameraState;
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Localisation {
@@ -189,9 +189,9 @@ Json::Value GoalObservation::toJson() const {
 
 void GoalObservation::fromJson(const Json::Value & v, const std::string & dir_name) {
   (void) dir_name;
-  rhoban_utils::tryRead(v,"robotHeight",&robotHeight);
-  rhoban_utils::tryRead(v,"pan",&pan);
-  rhoban_utils::tryRead(v,"tilt",&tilt);
+  starkit_utils::tryRead(v,"robotHeight",&robotHeight);
+  starkit_utils::tryRead(v,"pan",&pan);
+  starkit_utils::tryRead(v,"tilt",&tilt);
 }
 
 double GoalObservation::getMinScore() const {

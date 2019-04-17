@@ -2,10 +2,10 @@
 
 #include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 #include "opencv2/ocl/ocl.hpp"
 
-using rhoban_utils::Benchmark;
+using starkit_utils::Benchmark;
 using namespace std;
 using namespace cv;
 
