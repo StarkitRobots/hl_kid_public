@@ -87,7 +87,11 @@ Some symbolic links should be modified in env/fake.
 To use *BlackFly* cameras from *FLIR*, you have to install their software. First
 clone this repository:
 
+<<<<<<< HEAD
     git clone https://github.com/Starkit/flycapture.git
+=======
+    git clone https://github.com/StarkitDeps/flycapture.git
+>>>>>>> origin/starkit
     
 And run the install script:
 

@@ -24,6 +24,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+<<<<<<< HEAD
   <build_depend>RhAL</build_depend> <!-- StarkitRobots/rhal -->
   <build_depend>model</build_depend> <!-- StarkitRobots/model -->
   <build_depend>robocup_referee</build_depend> <!-- StarkitRobots/robocupreferee -->
@@ -33,6 +34,17 @@
   <build_depend>starkit_team_play</build_depend> <!-- StarkitRobots/teamplay -->
   <build_depend>starkit_model_learning</build_depend> <!-- StarkitRobots/model_learning -->
   <build_depend>csa_mdp_experiments</build_depend> <!-- StarkitRobots/csa_mdp_experiments.git -->
+=======
+  <build_depend>RhAL</build_depend> <!-- starkit/rhal -->
+  <build_depend>model</build_depend> <!-- starkit/model -->
+  <build_depend>robocup_referee</build_depend> <!-- starkit/robocupreferee -->
+  <build_depend>starkit_graphs</build_depend> <!-- starkit/graphs -->
+  <build_depend>starkit_unsorted</build_depend> <!-- starkit/unsorted -->
+  <build_depend>starkit_random</build_depend> <!-- starkit/random -->
+  <build_depend>starkit_team_play</build_depend> <!-- starkit/teamplay -->
+  <build_depend>starkit_model_learning</build_depend> <!-- starkit/model_learning -->
+  <build_depend>csa_mdp_experiments</build_depend> <!-- starkit/csa_mdp_experiments.git -->
+>>>>>>> origin/starkit
   <build_depend>tiny-dnn</build_depend> <!-- StarkitRobots/tiny-dnn.git -->
   <build_depend>aruco</build_depend> <!-- StarkitRobots/aruco.git -->
   <build_depend>tclap</build_depend> <!-- StarkitRobots/tclap -->
