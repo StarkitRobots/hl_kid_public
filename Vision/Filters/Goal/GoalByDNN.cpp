@@ -4,13 +4,13 @@
 #include "Utils/RotatedRectUtils.hpp"
 #include "Utils/OpencvUtils.h"
 #include "Utils/ROITools.hpp"
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 
-#include "rhoban_geometry/circle.h"
+#include "starkit_geometry/circle.h"
 
 #include <opencv2/imgproc/imgproc.hpp>
 
-using ::rhoban_utils::Benchmark;
+using ::starkit_utils::Benchmark;
 using namespace std;
 
 static void patchToNN(const cv::Mat & patch,
@@ -81,8 +81,8 @@ Json::Value GoalByDNN::toJson() const
 void GoalByDNN::fromJson(const Json::Value & v, const std::string & dir_name)
 {
   Filter::fromJson(v, dir_name);
-  rhoban_utils::tryRead(v,"arch_path",&arch_path);
-  rhoban_utils::tryRead(v,"weights_path",&weights_path);
+  starkit_utils::tryRead(v,"arch_path",&arch_path);
+  starkit_utils::tryRead(v,"weights_path",&weights_path);
 
   updateNN();
 }

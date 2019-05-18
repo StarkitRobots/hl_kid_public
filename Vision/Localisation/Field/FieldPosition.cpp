@@ -5,8 +5,8 @@
 #include "Field/Field.hpp"
 
 using namespace Vision::Utils;
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Localisation {

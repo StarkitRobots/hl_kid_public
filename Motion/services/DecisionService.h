@@ -4,7 +4,7 @@
 #include <map>
 #include <RhAL.hpp>
 #include "services/Service.h"
-#include <rhoban_utils/history/history.h>
+#include <starkit_utils/history/history.h>
 #include <Model/HumanoidFixedPressureModel.hpp>
 #include <Model/HumanoidFixedModel.hpp>
 
@@ -161,7 +161,7 @@ class DecisionService : public Service
         double freeKickT;
 
         /// When has ball been flagged as moving for the last time
-        rhoban_utils::TimeStamp lastBallMoving;
+        starkit_utils::TimeStamp lastBallMoving;
 
         /// In order for a robot to be considered as handled, it has to see a
         /// pressure inferior to lowPressureThreshold for more than handledDelay

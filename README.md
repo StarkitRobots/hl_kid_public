@@ -1,6 +1,6 @@
-# Rhoban HL kid public code
+# Starkit HL kid public code
 
-To install and use this repository, refer to the [latest stable release of workspace](https://github.com/Rhoban/workspace/blob/final_2018/README.md)
+To install and use this repository, refer to the [latest stable release of workspace](https://github.com/Starkit/workspace/blob/final_2018/README.md)
 
 
 
@@ -13,7 +13,7 @@ To install and use this repository, refer to the [latest stable release of works
 - Choose the recommended distribution for next year (18.04?)
 - Update dependencies (moving to OpenCV3)
   - Currently nonfree of OpenCV3 is not supported in 18.04
-- Change install commands for rhoban developers (use private repositories)
+- Change install commands for starkit developers (use private repositories)
 - Is 'workspace' only for 'kid_size' or not?
   - To be discussed
 
@@ -51,20 +51,20 @@ field, choose any name you want and validate the new key.
 
 Clone the latest stable release of `workspace` repository and move to it:
 
-    git clone -b final_2018 https://github.com/rhoban/workspace.git
+    git clone -b final_2018 https://github.com/starkit/workspace.git
     cd workspace
 
 Then, run the setup:
 
     ./workspace setup
 
-You can then install the latest stable release of all the rhoban source code:
-Note: You should make a fork of rhoban/environments_public in order to have
+You can then install the latest stable release of all the starkit source code:
+Note: You should make a fork of starkit/environments_public in order to have
 the configuration for your own robots.
 
     ./workspace install StarkitRobots/hl_kid_public.git
     ./workspace install StarkitRobots/environments_starkit.git
-    ./workspace install rhoban/monitoring_robocup.git
+    ./workspace install starkit/monitoring_robocup.git
     ./workspace git checkout final_2018
     ln -sf  src/starkitrobots/environments_starkit/ env
 
@@ -79,7 +79,7 @@ Some symbolic links should be modified in env/fake.
     ln -sf ../starkit_robot/KickModelCollection.json env/fake
     ln -sf ../starkit_robot/VCM.json env/fake
     ln -sf ../starkit_robot/sigmaban.urdf env/fake
-    ln -sf ../../../rhoban/model/Data/font.ttf env/fake
+    ln -sf ../../../starkit/model/Data/font.ttf env/fake
 
     
 ### Installing FlyCapture dependency
@@ -87,7 +87,7 @@ Some symbolic links should be modified in env/fake.
 To use *BlackFly* cameras from *FLIR*, you have to install their software. First
 clone this repository:
 
-    git clone https://github.com/RhobanDeps/flycapture.git
+    git clone https://github.com/Starkit/flycapture.git
     
 And run the install script:
 
@@ -203,13 +203,13 @@ To build just a specific package:
 In `packages.xml`, you can annotate the repositories:
 
 ```xml
-    <build_depend>model</build_depend> <!-- rhobanproject/model -->
+    <build_depend>model</build_depend> <!-- starkitproject/model -->
 ```
 
 By default, this will use GitHub, you can also use complete repo names
 
 ```xml
-    <build_depend>csa_mdp_experiments</build_depend> <!-- optional git@bitbucket.org:rhoban/csa_mdp_experiments.git -->
+    <build_depend>csa_mdp_experiments</build_depend> <!-- optional git@bitbucket.org:starkit/csa_mdp_experiments.git -->
 ```
 
 Here, a full repository name is used, and the dependency is tagged `optional`. This means that

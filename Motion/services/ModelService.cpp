@@ -1,10 +1,10 @@
 #include <iostream>
 #include <stdexcept>
-#include <rhoban_utils/angle.h>
-#include <rhoban_utils/util.h>
+#include <starkit_utils/angle.h>
+#include <starkit_utils/util.h>
 #include <Utils/Angle.h>
 #include <Model/NamesModel.h>
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/time_stamp.h>
 #include "services/ModelService.h"
 #include "services/LocalisationService.h"
 #include "moves/Move.h"
@@ -13,7 +13,7 @@
 #include <vector>
 #include <algorithm>
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 ModelService::ModelService() :
   _noIMU(false),
@@ -45,7 +45,7 @@ ModelService::ModelService() :
   _isLogBinaryFormat(true)
 {
   // Reading the correection to bring to the model
-  rhoban_model_learning::VisionCorrectionModel correction_model;
+  starkit_model_learning::VisionCorrectionModel correction_model;
   correction_model.loadFile("VCM.json");
   _cameraParameters = correction_model.getCameraParameters();
   _imuOffset = correction_model.getImuOffsetsRad();

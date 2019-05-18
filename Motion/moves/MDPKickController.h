@@ -1,13 +1,13 @@
 #pragma once
 
 #include "moves/KickController.h"
-#include <rhoban_utils/control/control.h>
+#include <starkit_utils/control/control.h>
 #include <services/TeamPlayService.h>
 
-#include "rhoban_csa_mdp/core/policy.h"
+#include "starkit_csa_mdp/core/policy.h"
 #include "problems/kick_controler.h"//from csa_mdp_experiments
 
-#include "rhoban_utils/angle.h"
+#include "starkit_utils/angle.h"
 
 class Walk;
 

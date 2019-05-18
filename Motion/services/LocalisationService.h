@@ -4,8 +4,8 @@
 #include "Service.h"
 
 #include <Eigen/Dense>
-#include <rhoban_geometry/point.h>
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_geometry/point.h>
+#include <starkit_utils/timing/time_stamp.h>
 
 namespace Vision {
 class Robocup;
@@ -20,32 +20,32 @@ class LocalisationService : public Service
         LocalisationService();
 
         // Ball
-        rhoban_geometry::Point getBallPosSelf();
-        rhoban_geometry::Point getBallPosWorld();
-        rhoban_geometry::Point getBallPosField();
-        rhoban_geometry::Point getBallSpeedSelf();
-        rhoban_geometry::Point getPredictedBallSelf();
-        rhoban_geometry::Point getPredictedBallSelf(rhoban_utils::TimeStamp t);
-        rhoban_geometry::Point getLookBallPosWorld();
+        starkit_geometry::Point getBallPosSelf();
+        starkit_geometry::Point getBallPosWorld();
+        starkit_geometry::Point getBallPosField();
+        starkit_geometry::Point getBallSpeedSelf();
+        starkit_geometry::Point getPredictedBallSelf();
+        starkit_geometry::Point getPredictedBallSelf(starkit_utils::TimeStamp t);
+        starkit_geometry::Point getLookBallPosWorld();
         Eigen::Vector3d ballPosWorld;
         Eigen::Vector3d ballLookPosWorld;
         float ballQ;
-        rhoban_geometry::Point ballSpeed;// In world referential
-        rhoban_utils::TimeStamp ballTS;
+        starkit_geometry::Point ballSpeed;// In world referential
+        starkit_utils::TimeStamp ballTS;
         
         // Goal
-        rhoban_geometry::Point getGoalPosWorld();
-        rhoban_geometry::Point getGoalPosSelf();
-        rhoban_geometry::Point getGoalPosField();
-        rhoban_geometry::Point getOurGoalPosField();
-        rhoban_geometry::Point getLeftGoalPosSelf();
-        rhoban_geometry::Point getRightGoalPosSelf();
-        rhoban_geometry::Point getFieldPos();
+        starkit_geometry::Point getGoalPosWorld();
+        starkit_geometry::Point getGoalPosSelf();
+        starkit_geometry::Point getGoalPosField();
+        starkit_geometry::Point getOurGoalPosField();
+        starkit_geometry::Point getLeftGoalPosSelf();
+        starkit_geometry::Point getRightGoalPosSelf();
+        starkit_geometry::Point getFieldPos();
         double getFieldOrientation();// Return value in [rad]
         Eigen::Vector3d goalLeftPosWorld;
         Eigen::Vector3d goalRightPosWorld;
         Eigen::Vector3d fieldCenterWorld;
-        rhoban_utils::Angle getOurBallToGoalDirSelf();
+        starkit_utils::Angle getOurBallToGoalDirSelf();
 
         float fieldQ, fieldConsistency;
         bool consistencyEnabled;
@@ -54,10 +54,10 @@ class LocalisationService : public Service
         double getRightGoalCap();
         double getPenaltyLeftGoalCap();
         double getPenaltyRightGoalCap();
-        rhoban_geometry::Point getGoalPos();
+        starkit_geometry::Point getGoalPos();
 
         // Opponent
-        std::vector<rhoban_geometry::Point> getOpponentsField();
+        std::vector<starkit_geometry::Point> getOpponentsField();
         double opponentsRadius;
         bool opponentsAreFake;
         std::vector<Eigen::Vector3d> opponentsWorld;
@@ -95,8 +95,8 @@ class LocalisationService : public Service
         void setBallWorld(const Eigen::Vector3d &pos,
                           const Eigen::Vector3d &lookPos,
                           float quality,
-                          const rhoban_geometry::Point & speed,
-                          const rhoban_utils::TimeStamp & ts);
+                          const starkit_geometry::Point & speed,
+                          const starkit_utils::TimeStamp & ts);
         void updateBallPos();
         void setNoBall();
         
@@ -142,7 +142,7 @@ class LocalisationService : public Service
         void setVisualCompassStatus(bool inUse);
         bool getVisualCompassStatus() const;
 
-        rhoban_geometry::Point worldToField(Eigen::Vector3d world);
+        starkit_geometry::Point worldToField(Eigen::Vector3d world);
 
         void enableFieldFilter(bool enable=true);
 	void isGoalKeeper(bool status=false);
@@ -183,7 +183,7 @@ class LocalisationService : public Service
 
         RhIO::Bind bind;
         // Used for warning the user on frequent kicks
-        ::rhoban_utils::TimeStamp lastKick;
+        ::starkit_utils::TimeStamp lastKick;
 
 #ifdef VISION_COMPONENT
         Vision::Robocup *robocup;

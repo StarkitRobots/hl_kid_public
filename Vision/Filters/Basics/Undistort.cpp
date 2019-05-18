@@ -4,13 +4,13 @@
 
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 #include <opencv2/core/core.hpp>
 #include <iostream>
 #include <string>
 #include "opencv2/ocl/ocl.hpp"
 
-using rhoban_utils::Benchmark;
+using starkit_utils::Benchmark;
 
 namespace Vision {
 namespace Filters {

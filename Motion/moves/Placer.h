@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Move.h"
-#include "rhoban_utils/control/control.h"
-#include <rhoban_geometry/circle.h>
+#include "starkit_utils/control/control.h"
+#include <starkit_geometry/circle.h>
 
 class Walk;
 class Placer : public Move
@@ -18,7 +18,7 @@ class Placer : public Move
         // Controlling the placer, going to x, y [m] and azimuth [deg]
         // The circle are obstacles [m] to avoid
         void goTo(float x, float y, float azimuth, 
-                  std::vector<rhoban_geometry::Circle> obstacles=std::vector<rhoban_geometry::Circle>());
+                  std::vector<starkit_geometry::Circle> obstacles=std::vector<starkit_geometry::Circle>());
         void setLateralMode(bool l);
         void setDirectMode(bool );
         float getMaxMarginXY();
@@ -44,7 +44,7 @@ class Placer : public Move
         float targetAzimuth, errorAzimuth;
 
         // Servoing classes
-        rhoban_utils::Control stepper, lateraler, turner;
+        starkit_utils::Control stepper, lateraler, turner;
 
         // Margins [m] and [deg]
         float marginX, marginY, marginAzimuth ;//, tmpMarginAzimuth;
@@ -59,7 +59,7 @@ class Placer : public Move
         float capToTarget;
 
         // Obstacles to avoid [m]
-        std::vector<rhoban_geometry::Circle> obstacles;
+        std::vector<starkit_geometry::Circle> obstacles;
 
         // Distance to the next point that should be considered on the path [m]
         float pathTargetDist;

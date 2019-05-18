@@ -4,14 +4,14 @@
 #include "services/DecisionService.h"
 #include "services/LocalisationService.h"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
-#include <rhoban_utils/angle.h>
+#include <starkit_utils/angle.h>
 
-using namespace rhoban_utils;
-using rhoban_unsorted::HeadScan;
+using namespace starkit_utils;
+using starkit_unsorted::HeadScan;
 
-static rhoban_utils::Logger logger("Head");
+static starkit_utils::Logger logger("Head");
 
 Head::Head()
   : scan_period(-1),

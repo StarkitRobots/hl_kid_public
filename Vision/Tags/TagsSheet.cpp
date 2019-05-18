@@ -34,20 +34,20 @@ std::map<int, ArucoTag> TagsSheet::getMarkers() const
 Json::Value TagsSheet::toJson() const {
   Json::Value v;
   v["marker_size" ] = marker_size;
-  v["markers_ids" ] = rhoban_utils::vector2Json(markers_ids);
-  v["dx"          ] = rhoban_utils::vector2Json(dx);
-  v["dy"          ] = rhoban_utils::vector2Json(dy);
-  v["sheet_center"] = rhoban_utils::vector2Json(sheet_center);
+  v["markers_ids" ] = starkit_utils::vector2Json(markers_ids);
+  v["dx"          ] = starkit_utils::vector2Json(dx);
+  v["dy"          ] = starkit_utils::vector2Json(dy);
+  v["sheet_center"] = starkit_utils::vector2Json(sheet_center);
   return v;
 }
 
 void TagsSheet::fromJson(const Json::Value & v, const std::string & dir_path) {
   (void) dir_path;
-  rhoban_utils::tryRead(v,"marker_size" , &marker_size );
-  rhoban_utils::tryReadEigen(v,"dx"          , &dx          );
-  rhoban_utils::tryReadEigen(v,"dy"          , &dy          );
-  rhoban_utils::tryReadEigen(v,"sheet_center", &sheet_center);
-  rhoban_utils::tryReadVector(v,"markers_ids" , &markers_ids );
+  starkit_utils::tryRead(v,"marker_size" , &marker_size );
+  starkit_utils::tryReadEigen(v,"dx"          , &dx          );
+  starkit_utils::tryReadEigen(v,"dy"          , &dy          );
+  starkit_utils::tryReadEigen(v,"sheet_center", &sheet_center);
+  starkit_utils::tryReadVector(v,"markers_ids" , &markers_ids );
 }
 
 std::string TagsSheet::getClassName() const {

@@ -4,7 +4,7 @@
 
 #include <robocup_referee/constants.h>
 
-using namespace rhoban_geometry;
+using namespace starkit_geometry;
 using namespace robocup_referee;
 
 namespace Vision {

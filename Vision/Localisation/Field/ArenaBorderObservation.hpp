@@ -3,7 +3,7 @@
 #include "Localisation/Field/SerializableFieldObservation.hpp"
 #include "CameraState/CameraState.hpp"
 
-#include "rhoban_geometry/parametric_line.h"
+#include "starkit_geometry/parametric_line.h"
 
 namespace Vision {
 namespace Localisation {
@@ -11,10 +11,10 @@ namespace Localisation {
 class ArenaBorderObservation : public SerializableFieldObservation {
 private:
   // Seen line and closestpoint in robotReferential (2 dimensional)
-  rhoban_geometry::ParametricLine robotSeenLine;
+  starkit_geometry::ParametricLine robotSeenLine;
   // The closest point to the robot which belongs to the line (robot
   // referential)
-  rhoban_geometry::Point robotClosestPoint;
+  starkit_geometry::Point robotClosestPoint;
   double robotHeight;
 
   static double minDist;// [m]
@@ -31,13 +31,13 @@ public:
   ArenaBorderObservation();
 
   // throw std::runtime_error on failure
-  ArenaBorderObservation(const rhoban_geometry::ParametricLine &imgSeenLine, int imgWidth,
+  ArenaBorderObservation(const starkit_geometry::ParametricLine &imgSeenLine, int imgWidth,
                          int imgHeight, Utils::CameraState &cs);
 
   virtual double angleScore(const FieldPosition &p,
-                            const rhoban_geometry::ParametricLine &l) const;
+                            const starkit_geometry::ParametricLine &l) const;
   virtual double closestPointScore(const FieldPosition &p,
-                                   const rhoban_geometry::ParametricLine &l) const;
+                                   const starkit_geometry::ParametricLine &l) const;
 
   virtual double potential(const FieldPosition &p) const;
 

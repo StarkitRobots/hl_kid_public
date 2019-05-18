@@ -52,5 +52,5 @@ class Robocup : public STM
         void enterState(std::string state);
         void exitState(std::string state);
         
-        void setTeamPlayState(rhoban_team_play::TeamPlayState state);
+        void setTeamPlayState(starkit_team_play::TeamPlayState state);
 };

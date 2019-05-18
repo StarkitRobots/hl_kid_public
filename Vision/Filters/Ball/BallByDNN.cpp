@@ -5,9 +5,9 @@
 #include "Utils/Interface.h"
 #include "Utils/OpencvUtils.h"
 #include "Utils/ROITools.hpp"
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 
-#include "rhoban_geometry/circle.h"
+#include "starkit_geometry/circle.h"
 
 #include <opencv2/imgproc/imgproc.hpp>
 #include <utility>
@@ -17,8 +17,8 @@
 #include <iostream>
 
 using namespace std;
-using namespace rhoban_geometry;
-using ::rhoban_utils::Benchmark;
+using namespace starkit_geometry;
+using ::starkit_utils::Benchmark;
 
 static void patchToNN(const cv::Mat & patch,
                       double minv,
@@ -88,8 +88,8 @@ Json::Value BallByDNN::toJson() const
 void BallByDNN::fromJson(const Json::Value & v, const std::string & dir_name)
 {
   Filter::fromJson(v, dir_name);
-  rhoban_utils::tryRead(v,"arch_path",&arch_path);
-  rhoban_utils::tryRead(v,"weights_path",&weights_path);
+  starkit_utils::tryRead(v,"arch_path",&arch_path);
+  starkit_utils::tryRead(v,"weights_path",&weights_path);
 
   updateNN();
 }

@@ -73,7 +73,7 @@ static void signal_attach()
 int main(int argc, char **argv)
 {
     // Parameters are not used currently
-    TCLAP::CmdLine cmd("RhobanServer", ' ', "0.1");
+    TCLAP::CmdLine cmd("StarkitServer", ' ', "0.1");
     TCLAP::ValueArg<int> port("p", "port", "Port", false, RhIO::ServersPortBase, "port", cmd);
     cmd.parse(argc, argv);
 

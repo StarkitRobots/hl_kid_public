@@ -5,11 +5,11 @@
 #include <services/LocalisationService.h>
 #include <scheduler/MoveScheduler.h>
 #include <json/json.h>
-#include <rhoban_utils/util.h>
+#include <starkit_utils/util.h>
 #include <string>
 
-using ::rhoban_utils::TimeStamp;
-using namespace rhoban_geometry;
+using ::starkit_utils::TimeStamp;
+using namespace starkit_geometry;
 
 GoalKick::GoalKick()
 {

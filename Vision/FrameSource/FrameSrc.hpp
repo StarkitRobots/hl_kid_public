@@ -4,7 +4,7 @@
 #include <string>
 #include <opencv2/core/core.hpp>
 
-#include "rhoban_utils/timing/time_stamp.h"
+#include "starkit_utils/timing/time_stamp.h"
 
 namespace Vision {
 
@@ -40,7 +40,7 @@ public:
    * Throw std::runtime_error on grab error
    */
   // ugh
-  virtual cv::Mat grabFrame(::rhoban_utils::TimeStamp &newTS,
+  virtual cv::Mat grabFrame(::starkit_utils::TimeStamp &newTS,
                             bool *lastCall) = 0;
 
   /**

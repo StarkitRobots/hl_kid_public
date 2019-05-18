@@ -1,13 +1,13 @@
 #pragma once
 
-#include "rhoban_utils/angle.h"
+#include "starkit_utils/angle.h"
 
 #include <opencv2/core/core.hpp>
 #include <stdexcept>
 #include "scheduler/MoveScheduler.h"
 #include <Model/HumanoidFixedPressureModel.hpp>
 #include <Model/HumanoidModel.hpp>
-#include "rhoban_utils/timing/time_stamp.h"
+#include "starkit_utils/timing/time_stamp.h"
 #include <aruco.h> //access to the camera params struct
 #include <utility>
 #include <string>
@@ -18,7 +18,7 @@ namespace Utils {
 class CameraState {
 
 public:
-  typedef std::pair<rhoban_utils::Angle,rhoban_utils::Angle> PanTilt;
+  typedef std::pair<starkit_utils::Angle,starkit_utils::Angle> PanTilt;
   
   CameraState(MoveScheduler *moveScheduler, const std::string& CameraParametersYAML="./camera_calib.yml");
 
@@ -55,8 +55,8 @@ public:
    * the robot
    * basis.
    */
-  static cv::Point2f xyFromPanTilt(const rhoban_utils::Angle &pan,
-                                   const rhoban_utils::Angle &tilt,
+  static cv::Point2f xyFromPanTilt(const starkit_utils::Angle &pan,
+                                   const starkit_utils::Angle &tilt,
                                    double height);
 
   /**
@@ -97,7 +97,7 @@ public:
    *   0 -> looking horizon
    * +90 -> looking the feet
    */
-  rhoban_utils::Angle getPitch();
+  starkit_utils::Angle getPitch();
 
   /**
    * Yaw of the camera basis
@@ -105,13 +105,13 @@ public:
    *  0 -> In front of the robot
    * +X -> left of the robot
    */
-  rhoban_utils::Angle getYaw();
+  starkit_utils::Angle getYaw();
 
   /**
    * Yaw of the trunk in the world referential
    *
    */
-  rhoban_utils::Angle getTrunkYawInWorld();
+  starkit_utils::Angle getTrunkYawInWorld();
 
 
   /// Return the lateral aperture angle in degrees
@@ -123,7 +123,7 @@ public:
   /**
    * Returns the timestamp of the last update in the obnoxius type
    */
-  rhoban_utils::TimeStamp getTimeStamp();
+  starkit_utils::TimeStamp getTimeStamp();
   /**
    * Returns the timestamp of the last update in a respectable type
    */

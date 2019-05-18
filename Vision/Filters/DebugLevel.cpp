@@ -12,9 +12,9 @@ Json::Value DebugLevel::toJson() const {
 }
 
 void DebugLevel::fromJson(const Json::Value & v, const std::string & dir_name) {
-  rhoban_utils::tryRead(v,"threads",&threads);
-  rhoban_utils::tryRead(v,"graphics",&graphics);
-  rhoban_utils::tryRead(v,"parameters",&parameters);
-  rhoban_utils::tryRead(v,"perfs",&perfs);
+  starkit_utils::tryRead(v,"threads",&threads);
+  starkit_utils::tryRead(v,"graphics",&graphics);
+  starkit_utils::tryRead(v,"parameters",&parameters);
+  starkit_utils::tryRead(v,"perfs",&perfs);
 }
 }

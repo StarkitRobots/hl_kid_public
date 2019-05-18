@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rhoban_utils/timing/elapse_tick.h>
+#include <starkit_utils/timing/elapse_tick.h>
 #include "scheduler/Helpers.h"
 
 /**
@@ -8,7 +8,7 @@
  *
  * Base class for service instance
  */
-class Service : public Helpers, public rhoban_utils::ElapseTick
+class Service : public Helpers, public starkit_utils::ElapseTick
 {
     public:
 

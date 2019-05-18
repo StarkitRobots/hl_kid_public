@@ -13,7 +13,7 @@ void ColorConverter::process() {
 
 void ColorConverter::fromJson(const Json::Value & v, const std::string & dir_name) {
   Filter::fromJson(v, dir_name);
-  rhoban_utils::tryRead(v,"conversion",&conversion);
+  starkit_utils::tryRead(v,"conversion",&conversion);
 }
 
 Json::Value ColorConverter::toJson() const {

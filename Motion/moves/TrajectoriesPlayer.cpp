@@ -32,7 +32,7 @@ TrajectoriesPlayer::TrajectoriesPlayer() :
         &TrajectoriesPlayer::cmdStart, *this);
     //Bind members
     bind->bindNew("filename", _filename, RhIO::Bind::PullOnly)
-        ->defaultValue("/home/rhoban/trajKick.splines");
+        ->defaultValue("/home/starkit/trajKick.splines");
     bind->bindNew("modelParams", _modelParamsPath, RhIO::Bind::PullOnly)
         ->defaultValue("");
     bind->bindNew("t", _t, RhIO::Bind::PushOnly)

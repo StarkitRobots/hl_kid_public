@@ -12,4 +12,4 @@ VISION_ALONE=ON
 
 Then, jump to the appropriate folder in environments (.../fake)
 
-Then call RhobanServer: `.../.../RhobanServer`
+Then call StarkitServer: `.../.../StarkitServer`

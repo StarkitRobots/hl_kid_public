@@ -1,6 +1,6 @@
 #include "CorridorProfile.hpp"
 
-#include <rhoban_utils/util.h>
+#include <starkit_utils/util.h>
 
 #include <iostream>
 
@@ -30,17 +30,17 @@ std::string CorridorProfile::getClassName() const {
 }
 Json::Value CorridorProfile::toJson() const {
   Json::Value v;
-  v["x_limits"] =  rhoban_utils::vector2Json(x_limits);
-  v["y_limits"] = rhoban_utils::vector2Json(y_limits);
-  v["weights"]  = rhoban_utils::vector2Json(weights);
+  v["x_limits"] =  starkit_utils::vector2Json(x_limits);
+  v["y_limits"] = starkit_utils::vector2Json(y_limits);
+  v["weights"]  = starkit_utils::vector2Json(weights);
   return v;
 }
 void CorridorProfile::fromJson(const Json::Value & v,
                                const std::string & dir_name) {
   (void) dir_name;
-  x_limits = rhoban_utils::readVector<double>(v,"x_limits");
-  y_limits = rhoban_utils::readVector<double>(v,"y_limits");
-  weights = rhoban_utils::readVector<double>(v,"weights");
+  x_limits = starkit_utils::readVector<double>(v,"x_limits");
+  y_limits = starkit_utils::readVector<double>(v,"y_limits");
+  weights = starkit_utils::readVector<double>(v,"weights");
 
   if (x_limits.size()+y_limits.size()+1 != weights.size()) {
     throw std::runtime_error(DEBUG_INFO + " incompatible sizes for limits and weights");

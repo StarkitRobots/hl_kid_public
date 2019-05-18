@@ -1,11 +1,11 @@
 #pragma once
 
 #include "moves/KickController.h"
-#include <rhoban_utils/control/control.h>
+#include <starkit_utils/control/control.h>
 #include <services/TeamPlayService.h>
 
-#include "rhoban_csa_mdp/core/policy.h"
-#include "rhoban_utils/angle.h"
+#include "starkit_csa_mdp/core/policy.h"
+#include "starkit_utils/angle.h"
 #include <strategy/KickStrategy.hpp>
 
 class Walk;
@@ -27,7 +27,7 @@ protected:
   KickStrategy::Action action;
 
   bool forceUpdate;
-  rhoban_geometry::Point lastUpdateBall;
+  starkit_geometry::Point lastUpdateBall;
 
   // Update when ball is more far than this value [m]
   double farUpdateDist;

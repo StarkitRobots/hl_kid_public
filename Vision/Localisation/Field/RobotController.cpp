@@ -2,8 +2,8 @@
 
 #include "RhIO.hpp"
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Localisation {
@@ -72,7 +72,7 @@ void RobotController::explore(FieldPosition &p, double elapsedTime) {
   std::uniform_real_distribution<double> angleDistrib(-angleExploration * noiseGain,
                                                       angleExploration * noiseGain);
   Eigen::VectorXd explMove =
-    elapsedTime * rhoban_random::getUniformSamples(posLimits, 1, &engine)[0];
+    elapsedTime * starkit_random::getUniformSamples(posLimits, 1, &engine)[0];
   Point explPos(explMove(0), explMove(1));
   p.move(explPos);
   p.rotate(elapsedTime * Angle(angleDistrib(engine)));

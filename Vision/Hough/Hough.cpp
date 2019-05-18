@@ -5,12 +5,12 @@
 #include "Utils/Drawing.hpp"
 #include "Utils/Interface.h"
 #include "Utils/OpencvUtils.h"
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 #include <opencv2/highgui/highgui.hpp>
 
-using rhoban_utils::Benchmark;
+using starkit_utils::Benchmark;
 
-using namespace rhoban_geometry;
+using namespace starkit_geometry;
 
 #define DEBUG_ON false
 

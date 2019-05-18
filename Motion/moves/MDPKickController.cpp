@@ -3,17 +3,17 @@
 #include "Walk.h"
 #include "scheduler/Helpers.h"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 #include <services/LocalisationService.h>
 #include <services/ModelService.h>
 #include <fstream>
 #include <stdexcept>
 
-#include "rhoban_csa_mdp/core/policy_factory.h"
+#include "starkit_csa_mdp/core/policy_factory.h"
 
 #include "policies/expert_approach.h"
 #include "policies/ok_seed.h"
-#include "rhoban_csa_mdp/core/policy_factory.h"
+#include "starkit_csa_mdp/core/policy_factory.h"
 
 
 #include "robocup_referee/constants.h"
@@ -22,11 +22,11 @@ using csa_mdp::ExpertApproach;
 using csa_mdp::Policy;
 using csa_mdp::PolicyFactory;
 
-using namespace rhoban_utils;
-using namespace rhoban_geometry;
+using namespace starkit_utils;
+using namespace starkit_geometry;
 using robocup_referee::Constants;
 
-static rhoban_utils::Logger logger("MDPKickController");
+static starkit_utils::Logger logger("MDPKickController");
 
 MDPKickController::MDPKickController()
 {

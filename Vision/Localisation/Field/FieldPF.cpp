@@ -4,7 +4,7 @@
 
 #include "Field/Field.hpp"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
 #include <robocup_referee/constants.h>
 #include <vector>
@@ -12,12 +12,12 @@
 #include <sstream>
 #include <cmath>
 
-static rhoban_utils::Logger logger("FieldPF");
+static starkit_utils::Logger logger("FieldPF");
 
 using namespace std;
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
-using namespace rhoban_unsorted;
+using namespace starkit_geometry;
+using namespace starkit_utils;
+using namespace starkit_unsorted;
 using namespace robocup_referee;
 
 namespace Vision {
@@ -293,7 +293,7 @@ void FieldPF::step(
 }
 
 void FieldPF::resetOnLines(int side) {
-  auto generator = rhoban_random::getRandomEngine();
+  auto generator = starkit_random::getRandomEngine();
   // According to rules, robot start in its own half
   double xOffset = Constants::field.penaltyMarkDist - Constants::field.fieldLength / 2;
   std::uniform_real_distribution<double> xDistribution(-borderNoise,
@@ -324,7 +324,7 @@ void FieldPF::resetOnLines(int side) {
 }
 
 void FieldPF::fallReset() {
-  auto generator = rhoban_random::getRandomEngine();
+  auto generator = starkit_random::getRandomEngine();
   std::uniform_real_distribution<double> dirDistribution(-fallNoiseTheta,
                                                          fallNoiseTheta);
   for (auto &p : particles) {
@@ -336,7 +336,7 @@ void FieldPF::fallReset() {
 }
 
 void FieldPF::customReset() {
-  auto generator = rhoban_random::getRandomEngine();
+  auto generator = starkit_random::getRandomEngine();
   std::uniform_real_distribution<double> dirDistribution(
       customTheta - customThetaNoise, customTheta + customThetaNoise);
   for (auto &p : particles) {

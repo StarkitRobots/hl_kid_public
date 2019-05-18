@@ -12,9 +12,9 @@
 #include <services/TeamPlayService.h>
 #include "Playing.h"
 #include "Head.h"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
-static rhoban_utils::Logger logger("GoalKeeper");
+static starkit_utils::Logger logger("GoalKeeper");
 
 static const bool DIVING=false;
 
@@ -27,9 +27,9 @@ static const bool DIVING=false;
 #define STATE_DIVING_LEFT  "diving_left"
 #define STATE_DIVING_RIGHT "diving_right"
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
-using namespace rhoban_team_play;
+using namespace starkit_geometry;
+using namespace starkit_utils;
+using namespace starkit_team_play;
 using robocup_referee::Constants;
 // xxx hysteresis sur align trop grande.
 // Prévoir mouvement d'arrêt

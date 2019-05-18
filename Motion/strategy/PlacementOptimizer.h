@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rhoban_geometry/point.h>
+#include <starkit_geometry/point.h>
 #include <deque>
 #include <map>
 
@@ -11,7 +11,7 @@ public:
     {
         Target();
         
-        rhoban_geometry::Point position;
+        starkit_geometry::Point position;
         float orientation;
         bool mandatory;
         float data;

@@ -1,10 +1,10 @@
 #ifndef VISION_DEBUG_LEVEL_HPP
 #define VISION_DEBUG_LEVEL_HPP
 
-#include "rhoban_utils/serialization/json_serializable.h"
+#include "starkit_utils/serialization/json_serializable.h"
 
 namespace Vision {
-class DebugLevel : public rhoban_utils::JsonSerializable {
+class DebugLevel : public starkit_utils::JsonSerializable {
 public:
   bool threads, graphics, parameters, perfs;
 

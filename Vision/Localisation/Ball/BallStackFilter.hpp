@@ -5,7 +5,7 @@
 #include <deque>
 #include <RhIO.hpp>
 #include <Eigen/Dense>
-#include <rhoban_utils/timing/time_stamp.h>
+#include <starkit_utils/timing/time_stamp.h>
 #include <Localisation/RadarFilterPoint.hpp>
 
 namespace Vision {
@@ -32,7 +32,7 @@ public:
   void applyKick(float x, float y);
 
 protected:
-  ::rhoban_utils::TimeStamp lastKick;
+  ::starkit_utils::TimeStamp lastKick;
 
   // Parameters
   float afterKickPermissiveDuration;

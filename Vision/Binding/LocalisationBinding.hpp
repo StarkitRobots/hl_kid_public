@@ -3,7 +3,7 @@
 #include "Localisation/Field/FieldPosition.hpp"
 #include "Localisation/Field/FieldPF.hpp"
 
-#include "rhoban_unsorted/particle_filter/observation.h"
+#include "starkit_unsorted/particle_filter/observation.h"
 #include "Localisation/Field/ArenaCornerObservation.hpp"
 
 #include <thread>
@@ -30,7 +30,7 @@ class CameraState;
 /// It can be used in a separate thread
 class LocalisationBinding {
 private:
-  typedef std::vector<rhoban_unsorted::Observation<Localisation::FieldPosition> * > ObservationVector;
+  typedef std::vector<starkit_unsorted::Observation<Localisation::FieldPosition> * > ObservationVector;
 
 public:
   LocalisationBinding(MoveScheduler * scheduler,
@@ -48,7 +48,7 @@ public:
 
   /// Return the timestamp associated to current time. If helpers is in fake
   /// mode, it uses the vision actual timeStamp
-  ::rhoban_utils::TimeStamp getNowTS();
+  ::starkit_utils::TimeStamp getNowTS();
 
   /// Lock mutex and update information from the filter
   void importFiltersResults();
@@ -95,14 +95,14 @@ public:
   int nb_particles_ff;
 
   /// Filters results
-  rhoban_utils::Angle toGoal;
+  starkit_utils::Angle toGoal;
   Localisation::FieldPosition robot;
   double toGoalQ, robotQ;
 
   bool enableFieldFilter;
   bool isGoalKeeper;
   /// Handling timeStamps
-  rhoban_utils::TimeStamp currTS, lastTS, lastFieldReset, lastUniformReset;
+  starkit_utils::TimeStamp currTS, lastTS, lastFieldReset, lastUniformReset;
 
 
   /// Elapsed time since last reset [s]
@@ -176,7 +176,7 @@ public:
   int minVCObs;
 
   /// Was last tick forbidden by the referee?
-  ::rhoban_utils::TimeStamp lastForbidden;
+  ::starkit_utils::TimeStamp lastForbidden;
 
   /// Is Localisation in a forbidden state
   bool isForbidden;

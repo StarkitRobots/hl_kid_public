@@ -1,6 +1,6 @@
 #include "HomogeneousTransform.hpp"
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Utils {

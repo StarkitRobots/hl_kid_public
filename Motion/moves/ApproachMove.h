@@ -4,8 +4,8 @@
 
 #include "kick_model/kick_model_collection.h"
 
-#include <rhoban_geometry/point.h>
-#include <rhoban_utils/angle.h>
+#include <starkit_geometry/point.h>
+#include <starkit_utils/angle.h>
 
 class Walk;
 class KickController;
@@ -24,7 +24,7 @@ public:
   virtual void onStop() override;
 
   /// Return the target of the kick
-  virtual rhoban_utils::Angle getKickCap();
+  virtual starkit_utils::Angle getKickCap();
 
   /// Returns the kick tolerance, +/- [deg]
   virtual double getKickTolerance();
@@ -52,7 +52,7 @@ protected:
 
   /// @see updateKickScore
   /// ball_pos is provided in self referential
-  void updateKickScore(double elapsed, const rhoban_geometry::Point & ball_pos);
+  void updateKickScore(double elapsed, const starkit_geometry::Point & ball_pos);
 
   /// Gets the current kick controler
   const KickController * getKickController() const;

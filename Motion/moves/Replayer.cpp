@@ -1,9 +1,9 @@
 #include "Replayer.hpp"
 
-#include "rhoban_utils/logging/logger.h"
-#include "rhoban_utils/serialization/json_serializable.h"
+#include "starkit_utils/logging/logger.h"
+#include "starkit_utils/serialization/json_serializable.h"
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 
 static Logger logger("Replayer");
 
@@ -56,7 +56,7 @@ void Replayer::onStart() {
 
     try {
       splines = Function::fromFile("staticPositions.json");
-    } catch (const rhoban_utils::JsonParsingError & exc) {
+    } catch (const starkit_utils::JsonParsingError & exc) {
       logger.error("%s", exc.what());
     }
 }

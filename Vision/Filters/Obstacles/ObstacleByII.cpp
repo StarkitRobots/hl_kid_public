@@ -1,19 +1,19 @@
 #include "ObstacleByII.hpp"
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 #include "Utils/OpencvUtils.h"
 #include "Utils/ROITools.hpp"
 #include "Utils/RotatedRectUtils.hpp"
 #include "CameraState/CameraState.hpp"
 
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/logging/logger.h>
 
 #include <set>
 
-using rhoban_utils::Benchmark;
+using starkit_utils::Benchmark;
 
-static rhoban_utils::Logger logger("ObstacleByII");
+static starkit_utils::Logger logger("ObstacleByII");
 
 namespace Vision {
 namespace Filters {

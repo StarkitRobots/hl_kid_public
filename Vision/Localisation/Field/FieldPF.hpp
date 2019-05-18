@@ -5,7 +5,7 @@
 
 #include "CameraState/CameraState.hpp"
 
-#include "rhoban_unsorted/particle_filter/particle_filter.h"
+#include "starkit_unsorted/particle_filter/particle_filter.h"
 
 #include "RhIO.hpp"
 #include <utility>
@@ -16,7 +16,7 @@
 namespace Vision {
 namespace Localisation {
 
-class FieldPF : public rhoban_unsorted::ParticleFilter<FieldPosition> {
+class FieldPF : public starkit_unsorted::ParticleFilter<FieldPosition> {
 public:
   typedef std::pair<int, int> GoalKey;
   typedef std::tuple<int, int, int> QualityKey;
@@ -32,7 +32,7 @@ private:
   std::vector<int> errorTols; // Tolerance to angle error to average
 
   // Directions and qualities of goals points of interest
-  std::map<GoalKey, rhoban_utils::Angle> goalDirections;
+  std::map<GoalKey, starkit_utils::Angle> goalDirections;
   std::map<QualityKey, double> goalQualities;
 
   virtual void updateInternalValues() override;
@@ -61,16 +61,16 @@ public:
   void applyPendingReset();
   void applyReset(ResetType t);
 
-  void step(rhoban_unsorted::Controller<FieldPosition> &ctrl,
-            const std::vector<rhoban_unsorted::Observation<FieldPosition> *> &observations,
+  void step(starkit_unsorted::Controller<FieldPosition> &ctrl,
+            const std::vector<starkit_unsorted::Observation<FieldPosition> *> &observations,
             double elapsedTime) override;
 
   void draw(cv::Mat &img, Utils::CameraState *cs) const;
 
-  rhoban_utils::Angle getAngleToGoal(const GoalKey &gk) const;
+  starkit_utils::Angle getAngleToGoal(const GoalKey &gk) const;
   double angleToGoalQuality(const QualityKey &qk) const;
 
-  rhoban_utils::Angle getAngleToGoal();
+  starkit_utils::Angle getAngleToGoal();
   double angleToGoalQuality();
 
   /// Return robot position in field [m]
@@ -81,7 +81,7 @@ public:
   cv::Point2d getCenterPositionInSelf();
   cv::Point2d getLeftGoalPositionInSelf();
   cv::Point2d getRightGoalPositionInSelf();
-  rhoban_utils::Angle getOrientation();
+  starkit_utils::Angle getOrientation();
   double getQuality();
 
   bool isResetPending() const;

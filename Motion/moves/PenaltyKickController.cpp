@@ -1,12 +1,12 @@
 #include <services/LocalisationService.h>
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/logging/logger.h>
 #include "robocup_referee/constants.h"
 #include "PenaltyKickController.h"
 
-using namespace rhoban_geometry;
+using namespace starkit_geometry;
 using namespace robocup_referee;
 
-static rhoban_utils::Logger logger("penaltyKickController");
+static starkit_utils::Logger logger("penaltyKickController");
 
 PenaltyKickController::PenaltyKickController()
     : KickController()

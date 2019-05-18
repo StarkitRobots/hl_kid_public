@@ -2,14 +2,14 @@
 
 #include "FieldPosition.hpp"
 
-#include "rhoban_unsorted/particle_filter/bounded_score_observation.h"
+#include "starkit_unsorted/particle_filter/bounded_score_observation.h"
 
 // Ensure that the particle is inside of the field
 
 namespace Vision {
 namespace Localisation {
 
-class FieldObservation : public rhoban_unsorted::BoundedScoreObservation<FieldPosition> {
+class FieldObservation : public starkit_unsorted::BoundedScoreObservation<FieldPosition> {
   bool isGoalKeeper;
 public:
   FieldObservation(bool isGoalKeeper);

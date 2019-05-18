@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rhoban_utils/spline/function.h>
+#include <starkit_utils/spline/function.h>
 #include "Move.h"
 
 #include "kick_model/kick_model_collection.h"
@@ -16,7 +16,7 @@ public:
   bool over;
   bool live;
   std::string cmdKickGen();
-  std::map<std::string, rhoban_utils::Function> loadCompiledKick(std::string filename);
+  std::map<std::string, starkit_utils::Function> loadCompiledKick(std::string filename);
   void loadCompiledKicks();
   void loadKick(std::string filename);
 
@@ -26,7 +26,7 @@ public:
   static std::string getCompiledPath(const std::string kickName, bool left=false);
 protected:
 
-  typedef std::map<std::string, rhoban_utils::Function> Splines;
+  typedef std::map<std::string, starkit_utils::Function> Splines;
 
   bool useManualT;
   double manualT;
@@ -42,7 +42,7 @@ protected:
   std::string kickName;
 
   // Splines
-  std::map<std::string, rhoban_utils::Function> splines;
+  std::map<std::string, starkit_utils::Function> splines;
 
   // Preloaded splines
   std::map<std::string, Splines> preloadedSplines;

@@ -8,14 +8,14 @@
 #include <services/DecisionService.h>
 #include <services/LocalisationService.h>
 
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/logging/logger.h>
 
 #define STATE_WAITING  "waiting"
 #define STATE_PLAYING  "playing"
 #define STATE_STANDUP  "standing_up"
 #define STATE_HANDLED  "handled"
 
-static rhoban_utils::Logger logger("AutonomousPlaying");
+static starkit_utils::Logger logger("AutonomousPlaying");
 
 
 AutonomousPlaying::AutonomousPlaying(Walk *walk, StandUp *standup)

@@ -1,19 +1,19 @@
 #include <cmath>
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/angle.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/angle.h>
 #include <services/LocalisationService.h>
 #include <services/RefereeService.h>
-#include "rhoban_geometry/point.h"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_geometry/point.h"
+#include "starkit_utils/logging/logger.h"
 #include "moves/Approach.h"
 #include "moves/Walk.h"
 #include "moves/Head.h"
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 using csa_mdp::KickZone;
 
-static rhoban_utils::Logger logger("Approach"/*, LoggerDebug*/);
+static starkit_utils::Logger logger("Approach"/*, LoggerDebug*/);
 
 static double angleBetween(const Point &pt1, const Point &pt2)
 {
@@ -202,7 +202,7 @@ void Approach::step(float elapsed)
     Eigen::Vector3d wishedPos = kick_zone.getWishedPos(kickRight);
     double targetX     = wishedPos(0);
     double footTargetY = wishedPos(1);
-    double wished_dir = rhoban_utils::rad2deg(wishedPos(2));
+    double wished_dir = starkit_utils::rad2deg(wishedPos(2));
     double xRange =  kick_zone.getXRange();
     double yRange =  kick_zone.getYRange();
     targetAzimuth += wished_dir;

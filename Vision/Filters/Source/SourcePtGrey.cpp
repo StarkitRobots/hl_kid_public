@@ -4,9 +4,9 @@
 
 #include "RhIO.hpp"
 
-#include "rhoban_utils/timing/benchmark.h"
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/util.h>
+#include "starkit_utils/timing/benchmark.h"
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/util.h>
 
 #include <opencv2/highgui/highgui.hpp>
 
@@ -14,11 +14,11 @@
 #include <unistd.h>
 #include <iomanip>
 
-using ::rhoban_utils::Benchmark;
-using ::rhoban_utils::TimeStamp;
+using ::starkit_utils::Benchmark;
+using ::starkit_utils::TimeStamp;
 using namespace std;
 
-static rhoban_utils::Logger logger("SourcePtGrey");
+static starkit_utils::Logger logger("SourcePtGrey");
 
 namespace Vision {
 namespace Filters {
@@ -79,17 +79,17 @@ SourcePtGrey::propertyFromJson(const Json::Value & v,
   p.autoManualMode = false; // false -> manual
   p.valueA = 0;
   p.valueB = 0;
-  p.autoManualMode = rhoban_utils::read<bool>(v, "autoManualMode");
+  p.autoManualMode = starkit_utils::read<bool>(v, "autoManualMode");
   // Reading using temporary variables due to type
   if (!isWhiteBalance) {
     double tmpAbsVal = 0;
-    rhoban_utils::tryRead(v, "absValue", &tmpAbsVal);
+    starkit_utils::tryRead(v, "absValue", &tmpAbsVal);
     p.absValue = tmpAbsVal;
   } else {
     int tmpValA = 0;
     int tmpValB = 0;
-    rhoban_utils::tryRead(v, "valueA", &tmpValA);
-    rhoban_utils::tryRead(v, "valueB", &tmpValB);
+    starkit_utils::tryRead(v, "valueA", &tmpValA);
+    starkit_utils::tryRead(v, "valueB", &tmpValB);
     p.valueA = tmpValA;
     p.valueB = tmpValB;
   }
@@ -113,7 +113,7 @@ void SourcePtGrey::fromJson(const Json::Value & v, const std::string & dir_name)
   // If wished properties are found, use them
   if (!wp_val.isNull()) {
     if (!wp_val.isObject()) {
-      throw rhoban_utils::JsonParsingError("SourcePtGrey::fromJson: 'wished_properties' is not an object");
+      throw starkit_utils::JsonParsingError("SourcePtGrey::fromJson: 'wished_properties' is not an object");
     }
     for (const auto &entry : names_to_types) {
       const std::string &prop_name = entry.first;

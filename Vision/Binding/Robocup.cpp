@@ -26,16 +26,16 @@
 #include "Utils/Drawing.hpp"
 #include "Utils/Interface.h"
 
-#include "rhoban_geometry/point.h"
+#include "starkit_geometry/point.h"
 
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 
 #include "RhIO.hpp"
 #include "robocup_referee/constants.h"
 
 #include "moves/Head.h"
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/util.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/util.h>
 
 #include "Localisation/Field/CompassObservation.hpp"
 
@@ -56,11 +56,11 @@
 #include <algorithm>
 
 
-static rhoban_utils::Logger out("vision_robocup");
+static starkit_utils::Logger out("vision_robocup");
 
 using namespace Vision::Localisation;
-using namespace rhoban_utils;
-using namespace rhoban_geometry;
+using namespace starkit_utils;
+using namespace starkit_geometry;
 
 using namespace std::chrono;
 
@@ -244,28 +244,28 @@ Json::Value Robocup::toJson() const {
 
 void Robocup::fromJson(const Json::Value & v, const std::string & dir_name) {
   Application::fromJson(v, dir_name);
-  rhoban_utils::tryRead(v,"benchmark",&benchmark);
-  rhoban_utils::tryRead(v,"benchmarkDetail",&benchmarkDetail);
-  rhoban_utils::tryRead(v,"imageDelay",&imageDelay);
-  rhoban_utils::tryRead(v,"autologMovingBall",&autologMovingBall);
-  rhoban_utils::tryRead(v,"autologGames",&autolog_games);
-  rhoban_utils::tryRead(v,"logBallExtraTime",&logBallExtraTime);
-  rhoban_utils::tryRead(v,"writeBallStatus",&writeBallStatus);
-  rhoban_utils::tryRead(v,"ignoreOutOfFieldBalls",&ignoreOutOfFieldBalls);
+  starkit_utils::tryRead(v,"benchmark",&benchmark);
+  starkit_utils::tryRead(v,"benchmarkDetail",&benchmarkDetail);
+  starkit_utils::tryRead(v,"imageDelay",&imageDelay);
+  starkit_utils::tryRead(v,"autologMovingBall",&autologMovingBall);
+  starkit_utils::tryRead(v,"autologGames",&autolog_games);
+  starkit_utils::tryRead(v,"logBallExtraTime",&logBallExtraTime);
+  starkit_utils::tryRead(v,"writeBallStatus",&writeBallStatus);
+  starkit_utils::tryRead(v,"ignoreOutOfFieldBalls",&ignoreOutOfFieldBalls);
   for (auto &entry : featureProviders) {
     const std::string &featureName = entry.first;
 
     std::string nodeName = featureName + "Providers";
-    rhoban_utils::tryReadVector<std::string>(v, nodeName, &entry.second);
+    starkit_utils::tryReadVector<std::string>(v, nodeName, &entry.second);
   }
   for (SpecialImageHandler & sih : imageHandlers) {
-    rhoban_utils::tryRead(v, sih.name, &sih.display);
+    starkit_utils::tryRead(v, sih.name, &sih.display);
   }
 }
 
 void Robocup::init() {
   Application::init();
-  lastTS = ::rhoban_utils::TimeStamp::fromMS(0);
+  lastTS = ::starkit_utils::TimeStamp::fromMS(0);
 
   initRhIO();
 }
@@ -943,7 +943,7 @@ void Robocup::updateBallInformations() {
         double ballXSelf = posInSelf.x;
         double ballYSelf = posInSelf.y;
         LocalisationService * localisation = _scheduler->getServices()->localisation;
-        rhoban_geometry::Point robot = localisation->getFieldPos();
+        starkit_geometry::Point robot = localisation->getFieldPos();
         Angle robotDir(rad2deg(localisation->getFieldOrientation()));
         double ballXField = robot.x + cos(robotDir) * ballXSelf - sin(robotDir) * ballYSelf;
         double ballYField = robot.y + sin(robotDir) * ballXSelf + cos(robotDir) * ballYSelf;

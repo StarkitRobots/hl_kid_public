@@ -1,9 +1,9 @@
 #include "Filters/Basics/Integral.hpp"
 
 #include <opencv2/imgproc/imgproc.hpp>
-#include "rhoban_utils/timing/benchmark.h"
+#include "starkit_utils/timing/benchmark.h"
 
-using rhoban_utils::Benchmark;
+using starkit_utils::Benchmark;
 
 namespace Vision {
 namespace Filters {

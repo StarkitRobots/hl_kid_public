@@ -3,7 +3,7 @@
 #include "Utils/HomogeneousTransform.hpp"
 #include "services/ModelService.h"
 
-#include <rhoban_utils/logging/logger.h>
+#include <starkit_utils/logging/logger.h>
 
 #include <cmath>
 
@@ -26,10 +26,10 @@
 #define RAD2DEG(x) (((x) / M_PI) * 180.0)
 #endif
 
-using namespace rhoban_utils;
+using namespace starkit_utils;
 using namespace robocup_referee;
 
-static rhoban_utils::Logger logger("CameraState");
+static starkit_utils::Logger logger("CameraState");
 
 namespace Vision {
 namespace Utils {
@@ -52,7 +52,7 @@ CameraState::CameraState(MoveScheduler *moveScheduler,const std::string& CameraP
 {
   _moveScheduler = moveScheduler;
   _params = _moveScheduler->getServices()->model->getCameraParameters();
-  double now = ::rhoban_utils::TimeStamp::now().getTimeMS() / 1000.0;
+  double now = ::starkit_utils::TimeStamp::now().getTimeMS() / 1000.0;
   _moveScheduler->getServices()->model->pastReadModel(now, _pastReadModel);
   _model = &(_pastReadModel.get());
   _model->setAutoUpdate(false);
@@ -474,8 +474,8 @@ Eigen::Vector3d CameraState::ballInfoFromPixel(const cv::Point2f &pos,
   return ballCenter;
 }
 
-::rhoban_utils::TimeStamp CameraState::getTimeStamp() {
-  return ::rhoban_utils::TimeStamp::fromMS(_timeStamp * 1000);
+::starkit_utils::TimeStamp CameraState::getTimeStamp() {
+  return ::starkit_utils::TimeStamp::fromMS(_timeStamp * 1000);
 }
 
 double CameraState::getTimeStampDouble() { return _timeStamp * 1000; }

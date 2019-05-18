@@ -2,7 +2,7 @@
 
 #include "Filters/Filter.hpp"
 
-#include "rhoban_geometry/circle.h"
+#include "starkit_geometry/circle.h"
 
 namespace Vision {
 namespace Filters {
@@ -10,7 +10,7 @@ namespace Filters {
 /// This class describe the architecture of a ball provider and some common code
 class BallProvider : public Filter {
 public:
-  typedef rhoban_geometry::Circle Circle;
+  typedef starkit_geometry::Circle Circle;
   
   BallProvider(const std::string &name);
 

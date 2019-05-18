@@ -12,13 +12,13 @@
 #include "logging/Logger.h"
 #include "Head.h"
 
-static Rhoban::Logger logger("GoalKeeper");
+static Starkit::Logger logger("GoalKeeper");
 
 #define STATE_CLEAR            "clear"
 #define STATE_PLACE            "place"
 #define STATE_STOPPED          "stopped"
 
-using RhobanReferee::Constants;
+using StarkitReferee::Constants;
 
 /*
 

@@ -8,7 +8,7 @@ namespace Localisation {
 
 class CompassObservation : public SerializableFieldObservation {
 private:
-  typedef rhoban_utils::Angle Angle;
+  typedef starkit_utils::Angle Angle;
   
   /// Visual compass value which should be provided when facing opponent goal
   static Angle offset;

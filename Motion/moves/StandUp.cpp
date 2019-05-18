@@ -1,12 +1,12 @@
 #include "StandUp.h"
 
-#include <rhoban_utils/logging/logger.h>
-#include <rhoban_utils/serialization/json_serializable.h>
+#include <starkit_utils/logging/logger.h>
+#include <starkit_utils/serialization/json_serializable.h>
 
-using rhoban_utils::Function;
+using starkit_utils::Function;
 
 
-static rhoban_utils::Logger logger("StandUp");
+static starkit_utils::Logger logger("StandUp");
 
 StandUp::StandUp()
 {
@@ -95,7 +95,7 @@ void StandUp::step(float elapsed)
                         splines = Function::fromFile("standup_front.json");
                     }
                 }
-            } catch (const rhoban_utils::JsonParsingError & exc) {
+            } catch (const starkit_utils::JsonParsingError & exc) {
                 logger.error("%s", exc.what());
             }
 

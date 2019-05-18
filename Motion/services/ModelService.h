@@ -1,13 +1,13 @@
 #pragma once
 
-#include <rhoban_model_learning/humanoid_models/vision_correction_model.h>
+#include <starkit_model_learning/humanoid_models/vision_correction_model.h>
 
 #include <Eigen/Dense>
 #include <string>
 #include <map>
 #include <RhAL.hpp>
 #include "services/Service.h"
-#include <rhoban_utils/history/history.h>
+#include <starkit_utils/history/history.h>
 #include <Model/HumanoidFixedPressureModel.hpp>
 #include <Model/HumanoidFixedModel.hpp>
 #include <Odometry/Odometry.hpp>
@@ -48,7 +48,7 @@ ModelType InitHumanoidModel()
   }
 
   // Reading the correection to bring to the model
-  rhoban_model_learning::VisionCorrectionModel correction_model;
+  starkit_model_learning::VisionCorrectionModel correction_model;
   correction_model.loadFile("VCM.json");
 
   // Importing geometry data from a default model
@@ -248,7 +248,7 @@ private:
   /**
    * Container for all read value hitories
    */
-  std::map<std::string, rhoban_utils::History> _histories;
+  std::map<std::string, starkit_utils::History> _histories;
 
   /**
    * Model for target goal state

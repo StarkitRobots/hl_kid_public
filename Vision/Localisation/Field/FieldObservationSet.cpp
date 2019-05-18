@@ -4,7 +4,7 @@
 #include "Localisation/Field/ArenaCornerObservation.hpp"
 #include "Localisation/Field/GoalObservation.hpp"
 
-using namespace rhoban_unsorted;
+using namespace starkit_unsorted;
 
 namespace Vision {
 namespace Localisation {
@@ -33,7 +33,7 @@ Json::Value FieldObservationSet::toJson() const {
 
 void FieldObservationSet::fromJson(const Json::Value & v, const std::string & dir_name) {
   if (!v.isArray()) {
-    throw rhoban_utils::JsonParsingError("FieldObservationSet::fromJson: expecting an array");
+    throw starkit_utils::JsonParsingError("FieldObservationSet::fromJson: expecting an array");
   }
   observations.clear();
   for (Json::ArrayIndex idx=0; idx < v.size(); idx++) {

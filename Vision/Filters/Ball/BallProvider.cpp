@@ -1,6 +1,6 @@
 #include "BallProvider.hpp"
 
-using namespace rhoban_geometry;
+using namespace starkit_geometry;
 
 namespace Vision {
 namespace Filters {

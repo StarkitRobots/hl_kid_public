@@ -5,18 +5,18 @@
 
 #include "RhIO.hpp"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
-#include "rhoban_random/tools.h"
+#include "starkit_random/tools.h"
 
 #include "Utils/Interface.h"
 
-static rhoban_utils::Logger out("ArenaBorderObservation");
+static starkit_utils::Logger out("ArenaBorderObservation");
 
 using Vision::Utils::CameraState;
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
 namespace Vision {
 namespace Localisation {
@@ -83,7 +83,7 @@ ArenaBorderObservation::ArenaBorderObservation(
   Point diff = extremums[1] - src;
   std::vector<Point> points;
   std::uniform_real_distribution<double> rndDiff(0, 1);
-  auto generator = rhoban_random::getRandomEngine();
+  auto generator = starkit_random::getRandomEngine();
   int nbTries = 0;
   while (nbTries < maxTries && points.size() < 2) {
     Point pImg = src + diff * rndDiff(generator);
@@ -248,10 +248,10 @@ Json::Value ArenaBorderObservation::toJson() const {
 }
 
 void ArenaBorderObservation::fromJson(const Json::Value & v, const std::string & dir_name) {
-  rhoban_utils::tryRead(v,"robotHeight",&robotHeight);
+  starkit_utils::tryRead(v,"robotHeight",&robotHeight);
   double rho(0.0), theta(0.0);
-  rhoban_utils::tryRead(v,"rho",&rho);
-  rhoban_utils::tryRead(v,"theta",&theta);
+  starkit_utils::tryRead(v,"rho",&rho);
+  starkit_utils::tryRead(v,"theta",&theta);
   robotSeenLine = ParametricLine::fromRhoTheta(rho, Angle(theta));
   robotClosestPoint = robotSeenLine.projectPoint(Point(0, 0));
 }

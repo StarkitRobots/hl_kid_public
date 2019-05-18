@@ -4,11 +4,11 @@
 #include <cmath>
 #include "KickQLearning.hpp"
 #include <robocup_referee/constants.h>
-#include <rhoban_geometry/segment.h>
-#include <rhoban_geometry/circle.h>
+#include <starkit_geometry/segment.h>
+#include <starkit_geometry/circle.h>
 
 using namespace robocup_referee;
-using namespace rhoban_geometry;
+using namespace starkit_geometry;
 
 KickQLearning::KickQLearning(
         std::string kickFiles,

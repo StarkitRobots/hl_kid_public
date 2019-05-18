@@ -1,7 +1,7 @@
 #pragma once
 
 #include "moves/ApproachMove.h"
-#include <rhoban_utils/control/control.h>
+#include <starkit_utils/control/control.h>
 
 class Walk;
 class Head;
@@ -38,7 +38,7 @@ class Approach : public ApproachMove
         float farAlignerP, rotateAlignerP, nearAlignerP;
         float rotateLateralP, nearLateralP;
         // Aligning with the ball
-        rhoban_utils::Control aligner, stepper, lateraler;
+        starkit_utils::Control aligner, stepper, lateraler;
         // Radius to rotate around the ball
         float radius;
         // Shoot time interval

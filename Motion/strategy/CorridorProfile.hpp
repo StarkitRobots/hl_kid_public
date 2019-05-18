@@ -2,7 +2,7 @@
 
 #include <json/json.h>
 
-#include <rhoban_utils/serialization/json_serializable.h>
+#include <starkit_utils/serialization/json_serializable.h>
 
 /// This class is used to separate the field in different zones with different
 /// weights based on the following scheme (example with 2 separations in x and y)
@@ -23,7 +23,7 @@
 /// |                                  |                     |  ]   |
 /// |                                  |                     |      |
 ///  ---------------------------------------------------------------
-class CorridorProfile : public rhoban_utils::JsonSerializable {
+class CorridorProfile : public starkit_utils::JsonSerializable {
 public:
   CorridorProfile();
 

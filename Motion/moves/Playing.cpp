@@ -5,14 +5,14 @@
 #include <services/TeamPlayService.h>
 #include <services/StrategyService.h>
 #include <services/CaptainService.h>
-#include <rhoban_utils/control/control.h>
+#include <starkit_utils/control/control.h>
 #include <robocup_referee/constants.h>
 #include "Head.h"
 #include "Placer.h"
 #include "Playing.h"
 #include "Walk.h"
 #include "Approach.h"
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
 #define STATE_APPROACH  "approach"
 #define STATE_WALKBALL  "walkBall"
@@ -22,11 +22,11 @@
 #define STATE_STOPPING  "stopping"
 #define STATE_LOCALIZE  "localize"
 
-static rhoban_utils::Logger logger("PlayingSTM");
+static starkit_utils::Logger logger("PlayingSTM");
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
-using namespace rhoban_team_play;
+using namespace starkit_geometry;
+using namespace starkit_utils;
+using namespace starkit_team_play;
 using namespace robocup_referee;
 
 PlayingMove::PlayingMove(Walk *walk)

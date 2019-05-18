@@ -11,19 +11,19 @@
 #include <set>
 #include <map>
 #include "CameraState/CameraState.hpp"
-#include "rhoban_utils/timing/benchmark.h"
-#include "rhoban_utils/util.h"
+#include "starkit_utils/timing/benchmark.h"
+#include "starkit_utils/util.h"
 
 #include "Utils/OpencvUtils.h"
 
 #include "RhIO.hpp"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
-using namespace rhoban_geometry;
-using namespace rhoban_utils;
+using namespace starkit_geometry;
+using namespace starkit_utils;
 
-static rhoban_utils::Logger out("Filter");
+static starkit_utils::Logger out("Filter");
 
 namespace Vision {
 
@@ -397,10 +397,10 @@ void Filter::fromJson(const Json::Value & v, const std::string & dir_name) {
   setParameters();
   try {
     // Then update content from json data
-    rhoban_utils::tryRead(v,"name",&name);
-    rhoban_utils::tryRead(v,"display",&display);;
+    starkit_utils::tryRead(v,"name",&name);
+    starkit_utils::tryRead(v,"display",&display);;
     // Read dependencies
-    rhoban_utils::tryReadVector(v, "dependencies", &_dependencies);
+    starkit_utils::tryReadVector(v, "dependencies", &_dependencies);
     // Checking dependencies size
     if (_dependencies.size() != (size_t)expectedDependencies()) {
       std::ostringstream oss;
@@ -408,17 +408,17 @@ void Filter::fromJson(const Json::Value & v, const std::string & dir_name) {
           << getClassName() << "': invalid number of dependencies ("
           << _dependencies.size() << " received, " << expectedDependencies()
           << " expected)";
-      throw rhoban_utils::JsonParsingError(oss.str());
+      throw starkit_utils::JsonParsingError(oss.str());
     }
     // Read Parameters
     tryParametersUpdate<int  >(v, "paramInts");
     tryParametersUpdate<float>(v, "paramFloats");
-  } catch (const rhoban_utils::JsonParsingError & err) {
+  } catch (const starkit_utils::JsonParsingError & err) {
     std::ostringstream oss;
     oss << err.what() << " in filter with name '" << name << "' of class '" << getClassName() << "'";
-    throw rhoban_utils::JsonParsingError(oss.str());
+    throw starkit_utils::JsonParsingError(oss.str());
   }
-  rhoban_utils::tryRead(v, "warningExecutionTime", &warningExecutionTime);
+  starkit_utils::tryRead(v, "warningExecutionTime", &warningExecutionTime);
   // Init display if required
   initWindow();
   // Publish parameters to RhIO

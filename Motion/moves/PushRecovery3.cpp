@@ -6,9 +6,9 @@
 
 #include <math.h>
 #include <RhIO.hpp>
-#include <rhoban_utils/angle.h>
+#include <starkit_utils/angle.h>
 #include <Model/HumanoidFloatingModel.hpp>
-#include <rhoban_utils/control/variation_bound.h>
+#include <starkit_utils/control/variation_bound.h>
 #include "services/ModelService.h"
 #include <cstring>
 

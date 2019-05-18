@@ -1,18 +1,18 @@
 #include <cmath>
 #include <services/LocalisationService.h>
 #include <services/TeamPlayService.h>
-#include <rhoban_graphs/obstacle_avoider.h>
+#include <starkit_graphs/obstacle_avoider.h>
 #include <robocup_referee/constants.h>
 #include "Placer.h"
 #include "Walk.h"
 
-#include "rhoban_utils/logging/logger.h"
+#include "starkit_utils/logging/logger.h"
 
-static rhoban_utils::Logger logger("Placer");
+static starkit_utils::Logger logger("Placer");
 
 using namespace robocup_referee;
-using namespace rhoban_utils;
-using namespace rhoban_geometry;
+using namespace starkit_utils;
+using namespace starkit_geometry;
 
 Placer::Placer(Walk *walk)
   : walk(walk)
@@ -232,7 +232,7 @@ void Placer::step(float elapsed)
 
     // Obstacle avoidance
     double score;
-    rhoban_graphs::ObstacleAvoider avoider;
+    starkit_graphs::ObstacleAvoider avoider;
 
     // Obstacle in the robot frame
     if (obstacles.size()) {
@@ -250,7 +250,7 @@ void Placer::step(float elapsed)
 
     if (avoidMates) {
       for (const auto & mate_entry : loc->getTeamMatesField()) {
-        rhoban_geometry::Point pos(mate_entry.second(0),mate_entry.second(1));
+        starkit_geometry::Point pos(mate_entry.second(0),mate_entry.second(1));
         avoider.addObstacle(pos, loc->teamMatesRadius);
       }
     }
