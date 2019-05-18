@@ -51,7 +51,7 @@ field, choose any name you want and validate the new key.
 
 Clone the latest stable release of `workspace` repository and move to it:
 
-    git clone -b final_2018 https://github.com/starkit/workspace.git
+    git clone -b final_2018 https://github.com/StarkitRobots/workspace.git
     cd workspace
 
 Then, run the setup:
@@ -64,7 +64,7 @@ the configuration for your own robots.
 
     ./workspace install StarkitRobots/hl_kid_public.git
     ./workspace install StarkitRobots/environments_starkit.git
-    ./workspace install starkit/monitoring_robocup.git
+    ./workspace install StarkitRobots/monitoring_robocup.git
     ./workspace git checkout final_2018
     ln -sf  src/starkitrobots/environments_starkit/ env
 
@@ -88,9 +88,9 @@ To use *BlackFly* cameras from *FLIR*, you have to install their software. First
 clone this repository:
 
 <<<<<<< HEAD
-    git clone https://github.com/Starkit/flycapture.git
+    git clone https://github.com/StarkitRobots/flycapture.git
 =======
-    git clone https://github.com/StarkitDeps/flycapture.git
+    git clone https://github.com/StarkitRobots/flycapture.git
 >>>>>>> origin/starkit
     
 And run the install script:
@@ -207,13 +207,13 @@ To build just a specific package:
 In `packages.xml`, you can annotate the repositories:
 
 ```xml
-    <build_depend>model</build_depend> <!-- starkitproject/model -->
+    <build_depend>model</build_depend> <!-- starkitrobots/model -->
 ```
 
 By default, this will use GitHub, you can also use complete repo names
 
 ```xml
-    <build_depend>csa_mdp_experiments</build_depend> <!-- optional git@bitbucket.org:starkit/csa_mdp_experiments.git -->
+    <build_depend>csa_mdp_experiments</build_depend> <!-- optional git@bitbucket.org:starkitrobots/csa_mdp_experiments.git -->
 ```
 
 Here, a full repository name is used, and the dependency is tagged `optional`. This means that
