@@ -32,6 +32,7 @@ First of all, you will need to install required packages:
         python-pip python-empy python-setuptools python-nose chrpath ffmpeg libudev-dev \
         libsfml-dev libconsole-bridge-dev freeglut3-dev libx11-dev libxrandr-dev libfreetype6-dev
         
+Attention! В данный момент необходима OpenCV версии 3, под четвертой она не работает, потом поправлю        
 ### Installing catkin
 
     sudo pip install -U catkin_tools mock
@@ -87,11 +88,9 @@ Some symbolic links should be modified in env/fake.
 To use *BlackFly* cameras from *FLIR*, you have to install their software. First
 clone this repository:
 
-<<<<<<< HEAD
+
     git clone https://github.com/StarkitRobots/flycapture.git
-=======
-    git clone https://github.com/StarkitRobots/flycapture.git
->>>>>>> origin/starkit
+
     
 And run the install script:
 
